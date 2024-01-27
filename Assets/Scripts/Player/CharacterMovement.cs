@@ -23,11 +23,8 @@ public class CharacterMovement : MonoBehaviour
     public float castDist;
     public bool grounded;
 
-    [Header("Other Settings")]
-    public HealthDamageManager enemyHDM;
-    public HealthDamageManager playerHDM; 
+    //[Header("Other Settings")]
     Vector3 currentVelo; 
-    
 
     float moveSpeed;
 
@@ -36,8 +33,6 @@ public class CharacterMovement : MonoBehaviour
         Cursor.visible = false; // Hides the cursor
         Cursor.lockState = CursorLockMode.Confined; //confines cursor to the scene
         bounceAnim.speed = 0; 
-
-        playerHDM = GetComponent<HealthDamageManager>();    
     }
     // Update is called once per frame
     void Update()
@@ -90,18 +85,6 @@ public class CharacterMovement : MonoBehaviour
             currentVelo.y = 0; //resets velocity so gravity is not constant
         }
 
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Enemy")
-        {
-            //Attack 
-            if (Input.GetMouseButton(0))
-            {
-                playerHDM.DealDamage(enemyHDM.gameObject);
-            }
-        }
     }
 
 }

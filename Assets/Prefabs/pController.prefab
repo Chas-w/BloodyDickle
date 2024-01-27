@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 5640519200210599042}
   - {fileID: 2279546342176724672}
-  - {fileID: 4785260156242914031}
+  - {fileID: 9024786140691958381}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &8996057232679320069
@@ -87,7 +87,7 @@ MonoBehaviour:
   grav: -25
   castDist: 3.5
   grounded: 0
---- !u!1 &3543039927930323594
+--- !u!1 &3458826954999667069
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,37 +95,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4785260156242914031}
-  - component: {fileID: 5814497361599930949}
+  - component: {fileID: 9024786140691958381}
+  - component: {fileID: 1628106642176528769}
+  - component: {fileID: 1904802239892112262}
+  - component: {fileID: 4459847968049693431}
+  - component: {fileID: 6545278273111848411}
   m_Layer: 0
   m_Name: pInteract
   m_TagString: Untagged
-  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4785260156242914031
+--- !u!4 &9024786140691958381
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3543039927930323594}
+  m_GameObject: {fileID: 3458826954999667069}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.65}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3104320709956251783}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &5814497361599930949
+--- !u!65 &1628106642176528769
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3543039927930323594}
+  m_GameObject: {fileID: 3458826954999667069}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -138,8 +141,63 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.97703236, y: 2.769601, z: 1.3179199}
-  m_Center: {x: -0.011483818, y: 0.019677758, z: 0.15895993}
+  m_Size: {x: 1, y: 2.9009314, z: 2.9604545}
+  m_Center: {x: 0, y: -0.084747314, z: 0.98022723}
+--- !u!54 &1904802239892112262
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3458826954999667069}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &4459847968049693431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3458826954999667069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 602b450c8dc1c704baaec2a02037e119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  opponentTag: Enemy
+  damageAmount: 1
+--- !u!114 &6545278273111848411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3458826954999667069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a925c35c6a5b025489eda966a8ab9840, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: {fileID: 4459847968049693431}
 --- !u!1 &4805115466663925324
 GameObject:
   m_ObjectHideFlags: 0
