@@ -36,7 +36,7 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // using old input system 
+        //using old input system 
 
         //Mouse Look 
         float mouseX = Input.GetAxis("Mouse X") * mouseSens /* Speed at which mouse moves */ * Time.deltaTime /* Framerate independence */;
