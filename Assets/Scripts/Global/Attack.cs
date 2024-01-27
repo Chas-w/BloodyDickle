@@ -7,7 +7,7 @@ public class Attack : MonoBehaviour
     [Header("Attack Settings")]
     public GameObject enemy; 
     public string opponentTag; 
-    public int damageAmount;
+    public float damageAmount;
 
     private void OnTriggerEnter(Collider other)
     {
