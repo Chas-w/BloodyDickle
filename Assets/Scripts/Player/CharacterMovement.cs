@@ -13,6 +13,8 @@ public class CharacterMovement : MonoBehaviour
     public Animator bounceAnim; 
     public float bounceSpeed; 
     public float mouseSens = 100f;
+    public GameObject boarders;
+    public Health thisHealth; 
 
     [Header("Keyboard Settings")]
     public CharacterController controller; 
@@ -34,11 +36,17 @@ public class CharacterMovement : MonoBehaviour
     {
         Cursor.visible = false; // Hides the cursor
         Cursor.lockState = CursorLockMode.Confined; //confines cursor to the scene
+        thisHealth = gameObject.GetComponent<Health>(); 
         bounceAnim.speed = 0; 
     }
     // Update is called once per frame
     void Update()
     {
+        if (transform.position.y < boarders.transform.position.y)
+        {
+            thisHealth.dead = true; 
+        }
+
         Vector3 camTransform = cam.transform.position;
         camTransform.y = transform.position.y; 
         cam.transform.position = camTransform;

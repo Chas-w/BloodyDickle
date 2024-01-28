@@ -28,7 +28,8 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        
+        player = GameObject.Find("pController");
+        playerHealth = player.gameObject.GetComponent<Health>();
     }
 
     // Update is called once per frame

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Health : MonoBehaviour
     public Animator anim;
     public GameObject gms;
     public GameManager gameManager;
+    
 
     public bool enemy;
     [SerializeField] AudioSource enemyDeath;
@@ -33,14 +35,23 @@ public class Health : MonoBehaviour
             dead = true;
         }
 
+        
         if (enemy) 
         {
             if (dead)
             {
                 Destroy(gameObject, 2);
                 anim.SetTrigger("dead");
+
             }
 
+        }
+        else
+        {
+            if ((dead &&!enemy))
+            {
+                SceneManager.LoadScene("End");
+            }
         }
         
     }
