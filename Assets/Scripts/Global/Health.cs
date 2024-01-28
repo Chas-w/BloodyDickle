@@ -7,9 +7,10 @@ public class Health : MonoBehaviour
     public float healthMax;
     public float health;
     public bool dead;
-    public Animator anim; 
+    public Animator anim;
 
-    public bool enemy; 
+    public bool enemy;
+    [SerializeField] AudioSource enemyDeath;
      
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class Health : MonoBehaviour
     {
         if (health <= 0)
         {
+            enemyDeath.Play();
             dead = true;
         }
 
