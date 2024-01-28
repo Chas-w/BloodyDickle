@@ -71,6 +71,7 @@ public class EnemyInteract : MonoBehaviour
     void Attacking()
     {
         if (playerHealth.health >= 0) { playerHealth.health -= damageAmount; }
+        enemyMovePattern.canMove = false;
         Debug.Log(playerHealth.health);
     }
 }
