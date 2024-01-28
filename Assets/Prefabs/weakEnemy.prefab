@@ -293,7 +293,7 @@ MonoBehaviour:
   healthMax: 100
   health: 0
   dead: 0
-  anim: {fileID: 0}
+  anim: {fileID: 1656926737851864255}
   enemy: 1
 --- !u!114 &388710993615041530
 MonoBehaviour:
@@ -324,7 +324,7 @@ MonoBehaviour:
   directionTimerMax: 2000
   directionTimerMin: 1000
   directionTimer: 0
-  canMove: 0
+  canMove: 1
   castDist: 5
 --- !u!54 &5118259409181596020
 Rigidbody:
