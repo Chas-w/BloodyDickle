@@ -29,7 +29,7 @@ public class MedPickup : MonoBehaviour
         if (other.transform.tag == "Player")
         {
             if (thisHealth.health <= thisHealth.healthMax) { thisHealth.health += healthAddition; }
-            Destroy(gameObject, 1);
+            Destroy(gameObject);
         }
     }
 }
