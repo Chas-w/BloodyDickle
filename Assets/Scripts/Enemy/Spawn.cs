@@ -20,7 +20,7 @@ public class Spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameManager.spawnNewWave) 
+        if (gameManager.spawnNewWave == true) 
         {
             for (int i = 0; i < spawnNumber; i++)
             {

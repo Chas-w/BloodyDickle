@@ -60,15 +60,15 @@ public class EnemyMovePattern : MonoBehaviour
 
     void assignDirection()
     {
-        if (!prioritizeForward) 
-        { 
+       // if (!prioritizeForward) 
+       // { 
             direction = Random.Range(1, 5);
             //assigning directions
             if (direction == 1) { moveLeft = true; } else { moveLeft = false; }
             if (direction == 2) { moveRight = true; } else { moveRight = false; }
             if (direction == 3) { moveForward = true; } else { moveForward = false; }
             if (direction == 4) { moveBackward = true; } else { moveBackward = false; }
-        }
+        //}
     }
 
     void checkAvailDirections()
@@ -98,8 +98,9 @@ public class EnemyMovePattern : MonoBehaviour
 
     void applyMovement()
     {
-        Vector3 movePos = new Vector3 (transform.position.x, 1, transform.position.z);
+        Vector3 movePos = transform.position;
         transform.LookAt(playerPos);
+        /*
         if (runAway)
         {
             if (moveLeft && leftAvail)
@@ -122,8 +123,8 @@ public class EnemyMovePattern : MonoBehaviour
                 movePos.x -= moveSpeed * Time.deltaTime;
                 moving = true;
             }
-        }
-        if (!runAway)
+        } */
+        /*if (!runAway)
         {
             if (Vector3.Distance(movePos, playerPos.position) < playerSearchDist && Vector3.Distance(movePos, playerPos.position) > playerProxBuffer)
             {
@@ -133,9 +134,10 @@ public class EnemyMovePattern : MonoBehaviour
                 moving = true;
             }
             else if (Vector3.Distance(movePos, playerPos.position) > playerSearchDist) { prioritizeForward = false; }
+        */
 
-            if (!prioritizeForward)
-            {
+            //if (!prioritizeForward)
+            //{
                 if (moveLeft && leftAvail)
                 {
                     movePos.x -= moveSpeed * Time.deltaTime;
@@ -156,8 +158,8 @@ public class EnemyMovePattern : MonoBehaviour
                     movePos.x -= moveSpeed * Time.deltaTime;
                     moving = true;
                 }
-            }
-        }
+            //}
+       /* } */
 
         //Gravity
 
