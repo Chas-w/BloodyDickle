@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public Health playerHealth;
     public bool spawnNewWave;
-    
+    public int wave; 
     void Start()
     {
         
@@ -20,7 +20,8 @@ public class GameManager : MonoBehaviour
         var enemyNum = GameObject.FindGameObjectsWithTag("Enemy");
         if (enemyNum.Length == 0)
         {
-            spawnNewWave = true; 
+            spawnNewWave = true;
+            wave++; 
         } else if (enemyNum.Length >= 0) { spawnNewWave = false;  }
         //if (SceneManager.GetActiveScene().name == "Mia Scene")
         //{

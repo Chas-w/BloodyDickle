@@ -124,4 +124,12 @@ public class EnemyMovePattern : MonoBehaviour
 
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "unSpawn")
+        {
+            Destroy(gameObject, 2);
+        }
+    }
+
 }
