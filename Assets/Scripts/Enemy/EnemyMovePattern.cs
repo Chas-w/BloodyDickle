@@ -7,7 +7,9 @@ public class EnemyMovePattern : MonoBehaviour
 {
     public GameObject player;
     public Transform playerPos;
+    public Animator animator;
 
+    public bool towardsPlayer; 
 
     public float moveSpeed;
     public bool leftAvail, rightAvail, forwardAvail, backwardAvail;
@@ -20,6 +22,7 @@ public class EnemyMovePattern : MonoBehaviour
 
     int direction;
     bool moving;
+    public bool canMove; 
 
 
     [SerializeField] float castDist;
@@ -28,30 +31,53 @@ public class EnemyMovePattern : MonoBehaviour
     {
         directionTimer = Random.Range(directionTimerMin, directionTimerMax);
         player = GameObject.Find("pController");
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        animator.speed = 1f;  
         // always look at player
         playerPos = player.transform;
         Vector3 adjusted = new Vector3(playerPos.position.x, transform.position.y, playerPos.position.z);
         transform.LookAt(adjusted);
 
-        checkAvailDirections();
-        applyMovement();
-
-        if (directionTimer >= 0)
+        if (canMove)
         {
-            directionTimer--;
-        }
-        if (directionTimer <= 0)
-        {
-            directionTimer = Random.Range(directionTimerMin, directionTimerMax);
-            assignDirection();
-        }
+            if (towardsPlayer)
+            {
+                checkAvailDirections();
+                attractMove();
+            }
 
+            if (!towardsPlayer)
+            {
+                checkAvailDirections();
+                applyMovement();
+
+                if (directionTimer >= 0)
+                {
+                    directionTimer--;
+                }
+                if (directionTimer <= 0)
+                {
+                    directionTimer = Random.Range(directionTimerMin, directionTimerMax);
+                    assignDirection();
+                }
+            }
+
+            if (!moving)
+            {
+                animator.SetTrigger("idleTrigger");
+            }
+        }
+        if (!canMove)
+        {
+            transform.position += Vector3.zero; 
+        }
+   
     }
 
 
@@ -94,6 +120,35 @@ public class EnemyMovePattern : MonoBehaviour
 
     }
 
+    void attractMove()
+    {
+        Vector3 movePos = transform.position;
+
+        if (playerPos.position.x > movePos.x && rightAvail)
+        {
+            movePos.x += moveSpeed * Time.deltaTime;
+            moving = true;
+        }
+        
+        if (playerPos.position.x  < movePos.x  && leftAvail)
+        {
+            movePos.x -= moveSpeed * Time.deltaTime;
+            moving = true;
+        }
+        if (playerPos.position.z > movePos.z && forwardAvail)
+        {
+            movePos.z += moveSpeed * Time.deltaTime;
+            moving = true;
+        }
+        if (playerPos.position.z < movePos.z && backwardAvail)
+        {
+            movePos.z -= moveSpeed * Time.deltaTime;
+            moving = true;
+        }
+        else { moving = false; }
+        transform.position = movePos;
+    }
+
     void applyMovement()
     {
         Vector3 movePos = transform.position;
@@ -102,17 +157,17 @@ public class EnemyMovePattern : MonoBehaviour
         {
             movePos.x -= moveSpeed * Time.deltaTime;
             moving = true;
-        }
+        } 
         if (moveRight && rightAvail)
         {
             movePos.x += moveSpeed * Time.deltaTime;
             moving = true;
-        }
+        } 
         if (moveForward && forwardAvail)
         {
             movePos.z += moveSpeed * Time.deltaTime;
             moving = true;
-        }
+        } 
         if (moveBackward && backwardAvail)
         {
             movePos.z -= moveSpeed * Time.deltaTime;
@@ -124,11 +179,25 @@ public class EnemyMovePattern : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "attract")
+        {
+            towardsPlayer = true;
+            animator.SetTrigger("forwardTrigger");
+        } 
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "unSpawn")
         {
             Destroy(gameObject, 2);
+        }
+        if (other.gameObject.tag == "attract")
+        {
+            towardsPlayer = false;
+            animator.SetTrigger("awayTrigger");
         }
     }
 

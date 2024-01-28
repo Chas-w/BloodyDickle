@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
     public float healthMax;
     public float health;
     public bool dead;
+    public Animator anim; 
 
     public bool enemy; 
      
@@ -26,7 +27,8 @@ public class Health : MonoBehaviour
 
         if (enemy && dead)
         {
-            Destroy(gameObject, 2); 
+            Destroy(gameObject, 2);
+            anim.SetTrigger("deadTrigger");
         }
     }
 }

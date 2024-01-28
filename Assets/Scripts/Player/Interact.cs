@@ -9,9 +9,9 @@ public class Interact : MonoBehaviour
     public Health enemyHealth;
     public string opponentTag;
     public float damageAmount;
-    
+    public bool damaging; 
 
-    bool canAttack; 
+    public bool canAttack; 
 
 
     // Start is called before the first frame update
@@ -24,10 +24,13 @@ public class Interact : MonoBehaviour
     void Update()
     {
         if (enemy != null) { enemyHealth = enemy.gameObject.GetComponent<Health>(); }
+        damaging = false;
+
         if (Input.GetMouseButton(0))
         {
             if (canAttack)
             {
+                damaging = true; 
                 Attacking(); 
             }
         }
@@ -48,7 +51,7 @@ public class Interact : MonoBehaviour
         }
     }
 
-    void Attacking()
+    public void Attacking()
     {
         if (enemyHealth.health >= 0) { enemyHealth.health -= damageAmount; }
         Debug.Log(enemyHealth.health);
