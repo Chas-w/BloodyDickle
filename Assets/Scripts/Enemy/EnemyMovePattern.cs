@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class EnemyMovePattern : MonoBehaviour
 {
-    public Transform playerPosition;
     public GameObject player;
     public Transform playerPos;
 
@@ -36,7 +36,8 @@ public class EnemyMovePattern : MonoBehaviour
     {
         // always look at player
         playerPos = player.transform;
-        transform.LookAt(playerPos);
+        Vector3 adjusted = new Vector3(playerPos.position.x, transform.position.y, playerPos.position.z);
+        transform.LookAt(adjusted);
 
         checkAvailDirections();
         applyMovement();
@@ -56,7 +57,6 @@ public class EnemyMovePattern : MonoBehaviour
 
     void assignDirection()
     {
-        Vector3 movePos = transform.position;
         transform.LookAt(playerPos);
         direction = Random.Range(1, 5);
         //assigning directions
@@ -97,8 +97,7 @@ public class EnemyMovePattern : MonoBehaviour
     void applyMovement()
     {
         Vector3 movePos = transform.position;
-        transform.LookAt(playerPos);
- 
+
         if (moveLeft && leftAvail)
         {
             movePos.x -= moveSpeed * Time.deltaTime;
