@@ -4766,6 +4766,14 @@ PrefabInstance:
       propertyPath: handsAnim
       value: 
       objectReference: {fileID: 601066325}
+    - target: {fileID: 9176214939907331188, guid: dc4e39b1f20a47e409142bdbb1e4d8ee, type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9176214939907331188, guid: dc4e39b1f20a47e409142bdbb1e4d8ee, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4003490964503283768, guid: dc4e39b1f20a47e409142bdbb1e4d8ee, type: 3}

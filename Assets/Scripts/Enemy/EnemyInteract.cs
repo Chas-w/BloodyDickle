@@ -41,8 +41,7 @@ public class EnemyInteract : MonoBehaviour
             if (canAttack)
             {
                 Attacking();
-                anim.SetBool("attackAnim", true);
-
+                anim.SetTrigger("attackTrigger");
             }
             damageTimer = damageTimerMax;
         }
@@ -54,7 +53,7 @@ public class EnemyInteract : MonoBehaviour
         {
             player = other.gameObject;
             canAttack = true;
-            anim.SetBool("canAttack", true);
+           
         }
     }
     private void OnTriggerExit(Collider other)
@@ -62,8 +61,7 @@ public class EnemyInteract : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {  
             canAttack = false;
-            anim.SetBool("attackAnim", false);
-            anim.SetBool("canAttack", false);
+            
 
         }
     }

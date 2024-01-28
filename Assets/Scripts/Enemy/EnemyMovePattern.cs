@@ -8,6 +8,7 @@ public class EnemyMovePattern : MonoBehaviour
     public GameObject player;
     public Transform playerPos;
     public Animator animator;
+    public Health thisHealth;
 
     public bool towardsPlayer; 
 
@@ -76,6 +77,28 @@ public class EnemyMovePattern : MonoBehaviour
         if (!canMove)
         {
             transform.position += Vector3.zero; 
+        }
+
+        if (moving)
+        {
+            animator.ResetTrigger("midTrigger");
+            animator.ResetTrigger("highTrigger");
+        }
+
+        Interact playerAttack = player.GetComponent<Interact>();
+        if (playerAttack.damaging)
+        {
+            if (thisHealth.health <= thisHealth.healthMax && thisHealth.health >= thisHealth.healthMax / 2)
+            {
+                animator.SetTrigger("highTrigger");
+            }
+            else { animator.ResetTrigger("highTrigger"); }
+
+            if (thisHealth.health <= thisHealth.healthMax / 2 && thisHealth.health >= 0)
+            {
+                animator.SetTrigger("midTrigger");
+            }
+            else { animator.ResetTrigger("midTrigger"); }
         }
    
     }

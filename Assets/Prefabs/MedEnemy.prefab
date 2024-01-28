@@ -277,6 +277,7 @@ MonoBehaviour:
   player: {fileID: 0}
   playerPos: {fileID: 0}
   animator: {fileID: 7550518833668761221}
+  thisHealth: {fileID: 6162134027054762407}
   towardsPlayer: 0
   moveSpeed: 5
   leftAvail: 0
