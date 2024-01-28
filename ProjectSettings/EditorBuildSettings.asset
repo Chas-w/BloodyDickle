@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Mia Scene.unity
     guid: cd8acf051aa5c6643a01640a216ecda0
   - enabled: 1
-    path: Assets/Scenes/Win.unity
+    path: Assets/Scenes/End.unity
     guid: 164fac641ee1a044c9aed869e17f30ab
   m_configObjects: {}
