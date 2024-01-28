@@ -900,7 +900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3750753176475135899, guid: 345d1b50d32097e4c953faa4f7198eca, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.89
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3750753176475135899, guid: 345d1b50d32097e4c953faa4f7198eca, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1039,7 +1039,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3260107683527788905, guid: aaae518518901ff41a3b4f65d0a3a3f0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.89
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3260107683527788905, guid: aaae518518901ff41a3b4f65d0a3a3f0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1073,13 +1073,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8036494334803480098, guid: aaae518518901ff41a3b4f65d0a3a3f0, type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 8036494334803480098, guid: aaae518518901ff41a3b4f65d0a3a3f0, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8157903267196152148, guid: aaae518518901ff41a3b4f65d0a3a3f0, type: 3}
       propertyPath: m_Name
       value: MedEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 8157903267196152148, guid: aaae518518901ff41a3b4f65d0a3a3f0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1094,21 +1098,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 388710993615041530, guid: 63c3a64f962bba34e8db53019545123e, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2632827049550552480, guid: 63c3a64f962bba34e8db53019545123e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.62
       objectReference: {fileID: 0}
     - target: {fileID: 2632827049550552480, guid: 63c3a64f962bba34e8db53019545123e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.89
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2632827049550552480, guid: 63c3a64f962bba34e8db53019545123e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.4
+      value: -4.51
       objectReference: {fileID: 0}
     - target: {fileID: 2632827049550552480, guid: 63c3a64f962bba34e8db53019545123e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1141,10 +1141,6 @@ PrefabInstance:
     - target: {fileID: 8278657210515971987, guid: 63c3a64f962bba34e8db53019545123e, type: 3}
       propertyPath: m_Name
       value: weakEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 8278657210515971987, guid: 63c3a64f962bba34e8db53019545123e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

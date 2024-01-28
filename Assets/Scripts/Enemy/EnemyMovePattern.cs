@@ -21,6 +21,7 @@ public class EnemyMovePattern : MonoBehaviour
 
     int direction;
     bool moving;
+    bool grounded; 
     [SerializeField] bool prioritizeForward; 
     
 
@@ -41,7 +42,6 @@ public class EnemyMovePattern : MonoBehaviour
     {
         // always look at player
         playerPos = player.transform;
-        transform.LookAt(playerPos);
 
         checkAvailDirections();
         applyMovement();
@@ -98,7 +98,8 @@ public class EnemyMovePattern : MonoBehaviour
 
     void applyMovement()
     {
-        Vector3 movePos = transform.position;
+        Vector3 movePos = new Vector3 (transform.position.x, 1, transform.position.z);
+        transform.LookAt(playerPos);
         if (runAway)
         {
             if (moveLeft && leftAvail)
@@ -157,7 +158,9 @@ public class EnemyMovePattern : MonoBehaviour
                 }
             }
         }
-        
+
+        //Gravity
+
         else { moving = false; }
 
         transform.position = movePos;

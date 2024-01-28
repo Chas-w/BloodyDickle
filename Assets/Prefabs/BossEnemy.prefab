@@ -204,7 +204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3750753176475135899
 Transform:
   m_ObjectHideFlags: 0
@@ -326,6 +326,7 @@ MonoBehaviour:
   player: {fileID: 0}
   playerPos: {fileID: 0}
   moveSpeed: 3
+  gravity: -6
   leftAvail: 0
   rightAvail: 0
   forwardAvail: 0

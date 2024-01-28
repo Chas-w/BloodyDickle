@@ -326,6 +326,7 @@ MonoBehaviour:
   player: {fileID: 0}
   playerPos: {fileID: 0}
   moveSpeed: 5
+  gravity: -6
   leftAvail: 0
   rightAvail: 0
   forwardAvail: 0
