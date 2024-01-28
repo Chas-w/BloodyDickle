@@ -156,21 +156,25 @@ public class EnemyMovePattern : MonoBehaviour
         if (moveLeft && leftAvail)
         {
             movePos.x -= moveSpeed * Time.deltaTime;
+            animator.SetTrigger("leftTrigger");
             moving = true;
         } 
         if (moveRight && rightAvail)
         {
             movePos.x += moveSpeed * Time.deltaTime;
+            animator.SetTrigger("rightTrigger");
             moving = true;
         } 
         if (moveForward && forwardAvail)
         {
             movePos.z += moveSpeed * Time.deltaTime;
+            animator.SetTrigger("forwardTrigger");
             moving = true;
         } 
         if (moveBackward && backwardAvail)
         {
             movePos.z -= moveSpeed * Time.deltaTime;
+            animator.SetTrigger("awayTrigger");
             moving = true;
         }
         else { moving = false; }

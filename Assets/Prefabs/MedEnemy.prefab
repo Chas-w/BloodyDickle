@@ -217,10 +217,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3260107683527788905}
-  - component: {fileID: 3824500692767284011}
   - component: {fileID: 6162134027054762407}
   - component: {fileID: 7175967687818157965}
   - component: {fileID: 8036494334803480098}
+  - component: {fileID: -6584387757240343675}
   m_Layer: 6
   m_Name: MedEnemy
   m_TagString: Enemy
@@ -245,29 +245,6 @@ Transform:
   - {fileID: 8832855035345486045}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &3824500692767284011
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8157903267196152148}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!114 &6162134027054762407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +260,7 @@ MonoBehaviour:
   healthMax: 200
   health: 0
   dead: 0
+  anim: {fileID: 7550518833668761221}
   enemy: 1
 --- !u!114 &7175967687818157965
 MonoBehaviour:
@@ -342,3 +320,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!65 &-6584387757240343675
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8157903267196152148}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2.0017843, z: 0.28158283}
+  m_Center: {x: 0, y: -0.009979848, z: -0.05511713}

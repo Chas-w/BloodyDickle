@@ -4706,6 +4706,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1904802239892112262, guid: dc4e39b1f20a47e409142bdbb1e4d8ee, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 1904802239892112262, guid: dc4e39b1f20a47e409142bdbb1e4d8ee, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3104320709956251783, guid: dc4e39b1f20a47e409142bdbb1e4d8ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 44.29
@@ -4754,6 +4762,10 @@ PrefabInstance:
       propertyPath: healthMax
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 6545278273111848411, guid: dc4e39b1f20a47e409142bdbb1e4d8ee, type: 3}
+      propertyPath: handsAnim
+      value: 
+      objectReference: {fileID: 601066325}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4003490964503283768, guid: dc4e39b1f20a47e409142bdbb1e4d8ee, type: 3}
@@ -5573,6 +5585,7 @@ GameObject:
   - component: {fileID: 601066322}
   - component: {fileID: 601066324}
   - component: {fileID: 601066323}
+  - component: {fileID: 601066325}
   m_Layer: 5
   m_Name: hands
   m_TagString: Untagged
@@ -5637,6 +5650,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 601066321}
   m_CullTransparentMesh: 1
+--- !u!95 &601066325
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601066321}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0b719fe4b8b8e44aac3b32646460608, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &604506357
 GameObject:
   m_ObjectHideFlags: 0
@@ -7679,6 +7713,7 @@ GameObject:
   - component: {fileID: 770916502}
   - component: {fileID: 770916504}
   - component: {fileID: 770916503}
+  - component: {fileID: 770916505}
   m_Layer: 0
   m_Name: playerPH
   m_TagString: Untagged
@@ -7743,6 +7778,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 770916501}
   m_CullTransparentMesh: 1
+--- !u!95 &770916505
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770916501}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e585e31757b38cc4f92d50b1816f1641, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &790340019
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,11 +24,10 @@ public class Health : MonoBehaviour
         {
             dead = true;
         }
-
         if (enemy && dead)
         {
             Destroy(gameObject, 2);
-            anim.SetTrigger("deadTrigger");
+            anim.SetBool("dead", true);
         }
     }
 }
