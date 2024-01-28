@@ -32,6 +32,8 @@ public class Interact : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             handsAnim.speed = 1;
+            //play tickle audio
+            tickeSFX.Play();
             {
                 damaging = true;
                 Attacking();
@@ -56,8 +58,7 @@ public class Interact : MonoBehaviour
 
     public void Attacking()
     {
-        //play tickle audio
-        tickeSFX.Play();
+        
         if (enemyHealth.health >= 0) { enemyHealth.health -= damageAmount; }
         Debug.Log(enemyHealth.health);
     }
