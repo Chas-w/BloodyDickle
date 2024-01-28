@@ -159,6 +159,7 @@ MonoBehaviour:
   healthMax: 1000
   health: 0
   dead: 0
+  anim: {fileID: 0}
   enemy: 0
 --- !u!1 &3458826954999667069
 GameObject:
@@ -258,6 +259,8 @@ MonoBehaviour:
   enemyHealth: {fileID: 0}
   opponentTag: Enemy
   damageAmount: 0.5
+  damaging: 0
+  canAttack: 0
 --- !u!1 &4003490964503283768
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,6 +271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7384094016944203224}
   - component: {fileID: 704722468961567186}
+  - component: {fileID: 8420857647818200158}
   m_Layer: 0
   m_Name: hands
   m_TagString: Untagged
@@ -342,6 +346,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8420857647818200158
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4003490964503283768}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d0b719fe4b8b8e44aac3b32646460608, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4013661448763296574
 GameObject:
   m_ObjectHideFlags: 0

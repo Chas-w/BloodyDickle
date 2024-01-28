@@ -10,7 +10,7 @@ public class CharacterMovement : MonoBehaviour
     public Transform pBody;
     public GameObject cam; 
     //public Transform camTransform; 
-    public Animator bounceAnim;
+    public Animator bounceAnim; 
     public float bounceSpeed; 
     public float mouseSens = 100f;
 

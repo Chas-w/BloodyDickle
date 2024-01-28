@@ -7,6 +7,7 @@ public class Interact : MonoBehaviour
     [Header("Attack Settings")]
     public GameObject enemy;
     public Health enemyHealth;
+    public Animator handsAnim;
     public string opponentTag;
     public float damageAmount;
     public bool damaging; 
@@ -28,12 +29,13 @@ public class Interact : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
+            handsAnim.SetBool("tickling", true);
             if (canAttack)
             {
-                damaging = true; 
-                Attacking(); 
+                damaging = true;
+                Attacking();
             }
-        }
+        } 
     }
     private void OnTriggerEnter(Collider other)
     {
