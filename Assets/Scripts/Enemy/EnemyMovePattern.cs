@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class EnemyMovePattern : MonoBehaviour
 {
-    public Transform playerPosition; 
+  
     public GameObject player;
     public Transform playerPos;
 
@@ -20,9 +21,13 @@ public class EnemyMovePattern : MonoBehaviour
 
     int direction;
     bool moving;
+    [SerializeField] bool prioritizeForward; 
+    
 
 
     [SerializeField] float castDist;
+    [SerializeField] float playerSearchDist;
+    [SerializeField] float playerProxBuffer; 
     // Start is called before the first frame update
     void Start()
     {
@@ -55,20 +60,21 @@ public class EnemyMovePattern : MonoBehaviour
 
     void assignDirection()
     {
-        direction = Random.Range(1, 5);
-        //assigning directions
-        if (direction == 1) { moveLeft = true; } else { moveLeft = false; }
-        if (direction == 2) { moveRight = true; } else { moveRight = false; }
-        if (direction == 3) { moveForward = true; } else { moveForward = false; }
-        if (direction == 4) { moveBackward = true; } else { moveBackward = false; }
-        
-        
+        if (!prioritizeForward) 
+        { 
+            direction = Random.Range(1, 5);
+            //assigning directions
+            if (direction == 1) { moveLeft = true; } else { moveLeft = false; }
+            if (direction == 2) { moveRight = true; } else { moveRight = false; }
+            if (direction == 3) { moveForward = true; } else { moveForward = false; }
+            if (direction == 4) { moveBackward = true; } else { moveBackward = false; }
+        }
     }
 
     void checkAvailDirections()
     {
-        leftAvail = true; rightAvail = true; forwardAvail = true; backwardAvail = true;
-
+        leftAvail = true; rightAvail = true; forwardAvail = true; backwardAvail = true; 
+        
         RaycastHit hit;
         
         if (Physics.Raycast(transform.position /*start position for ray*/ , transform.right /*cast direction */ , out hit, castDist /* ray cast distance */))
@@ -87,33 +93,43 @@ public class EnemyMovePattern : MonoBehaviour
         {
             backwardAvail = false;
         }
-        
-   
+
     }
 
     void applyMovement()
     {
         Vector3 movePos = transform.position;
 
-        if (moveLeft && leftAvail)
+        if (Vector3.Distance(movePos, playerPos.position) < playerSearchDist)
         {
-            movePos.x -= moveSpeed * Time.deltaTime;
+            // Swap the position of the cylinder.
+            prioritizeForward = true;
+            movePos = Vector3.MoveTowards(transform.position, playerPos.position, moveSpeed * Time.deltaTime);
             moving = true;
         }
-        if (moveRight && rightAvail)
+        else if (!prioritizeForward)
         {
-            movePos.x += moveSpeed * Time.deltaTime;
-            moving = true;
-        }
-        if (moveForward && forwardAvail)
-        {
-            movePos.z += moveSpeed * Time.deltaTime;
-            moving = true;
-        }
-        if (moveBackward && backwardAvail)
-        {
-            movePos.x -= moveSpeed * Time.deltaTime;
-            moving = true;
+            if (moveLeft && leftAvail)
+            {
+                movePos.x -= moveSpeed * Time.deltaTime;
+                moving = true;
+            }
+            if (moveRight && rightAvail)
+            {
+                movePos.x += moveSpeed * Time.deltaTime;
+                moving = true;
+            }
+            if (moveForward && forwardAvail)
+            {
+                movePos.z += moveSpeed * Time.deltaTime;
+                moving = true;
+            }
+            if (moveBackward && backwardAvail)
+            {
+                movePos.x -= moveSpeed * Time.deltaTime;
+                moving = true;
+            }
+
         }
         else { moving = false; }
 
