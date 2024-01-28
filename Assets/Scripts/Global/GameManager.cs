@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public bool spawnNewWave;
     public int wave;
     public static GameManager Instance { get; private set; }
+    public int finalWaveCount; 
 
     private void Awake()
     {
@@ -41,8 +42,8 @@ public class GameManager : MonoBehaviour
         } else if (enemyNum.Length >= 0) { spawnNewWave = false;  }
         if (SceneManager.GetActiveScene().name == "Mia Scene")
         {
-           if (playerHealth.dead == true) { SceneManager.LoadScene("Win"); }
+           if (playerHealth.dead == true) { SceneManager.LoadScene("End"); }
          }
-        if (SceneManager.GetActiveScene().name == "Win" || SceneManager.GetActiveScene().name == "Menu") { if (Input.GetMouseButtonDown(0)) { SceneManager.LoadScene("Mia Scene"); } }
+        if (SceneManager.GetActiveScene().name == "End" ) { if (Input.GetKey(KeyCode.Escape)) { SceneManager.LoadScene("Main Menu"); } }
     }
 }

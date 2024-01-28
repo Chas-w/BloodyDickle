@@ -8,6 +8,8 @@ public class Health : MonoBehaviour
     public float health;
     public bool dead;
     public Animator anim;
+    public GameObject gms;
+    public GameManager gameManager;
 
     public bool enemy;
     [SerializeField] AudioSource enemyDeath;
@@ -16,6 +18,9 @@ public class Health : MonoBehaviour
     void Start()
     {
         health = healthMax;
+        gms = GameObject.Find("GameManager");
+        gameManager = gms.GetComponent<GameManager>();
+
     }
 
     // Update is called once per frame
@@ -24,6 +29,7 @@ public class Health : MonoBehaviour
         if (health <= 0)
         {
             enemyDeath.Play();
+            gameManager.finalWaveCount = gameManager.wave;
             dead = true;
         }
 

@@ -162,6 +162,8 @@ MonoBehaviour:
   health: 0
   dead: 0
   anim: {fileID: 0}
+  gms: {fileID: 0}
+  gameManager: {fileID: 0}
   enemy: 0
   enemyDeath: {fileID: 7200126946378468852}
 --- !u!54 &9176214939907331188
@@ -580,7 +582,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3433532536168227699
 Transform:
   m_ObjectHideFlags: 0
@@ -608,8 +610,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.1
-  m_Range: 100
+  m_Intensity: 0.01
+  m_Range: 50
   m_SpotAngle: 112.8
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -650,7 +652,7 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 4.8178635, y: 4.6620145}
-  m_BounceIntensity: 0.5
+  m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}

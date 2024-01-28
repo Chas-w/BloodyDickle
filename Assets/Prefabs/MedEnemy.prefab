@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.16739239, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3260107683527788905}
@@ -262,6 +262,8 @@ MonoBehaviour:
   health: 0
   dead: 0
   anim: {fileID: 7550518833668761221}
+  gms: {fileID: 0}
+  gameManager: {fileID: 0}
   enemy: 1
   enemyDeath: {fileID: -1605088563199332685}
 --- !u!114 &7175967687818157965
@@ -342,8 +344,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2.0017843, z: 0.28158283}
-  m_Center: {x: 0, y: -0.009979848, z: -0.05511713}
+  m_Size: {x: 1, y: 3.245431, z: 0.28158283}
+  m_Center: {x: 0, y: 0.61183727, z: -0.05511713}
 --- !u!82 &-1605088563199332685
 AudioSource:
   m_ObjectHideFlags: 0

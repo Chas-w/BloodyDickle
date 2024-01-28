@@ -305,6 +305,7 @@ GameObject:
   - component: {fileID: 1207676359}
   - component: {fileID: 1207676358}
   - component: {fileID: 1207676357}
+  - component: {fileID: 1207676361}
   m_Layer: 5
   m_Name: ControlUI
   m_TagString: Untagged
@@ -396,6 +397,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1207676361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207676356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 871edc2fdd1ddb04ebb749e8f3bdd23c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gms: {fileID: 0}
+  gameManager: {fileID: 0}
+  waveCnt: {fileID: 1387164718}
 --- !u!1 &1387164716
 GameObject:
   m_ObjectHideFlags: 0
