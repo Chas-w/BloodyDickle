@@ -8,6 +8,8 @@ public class CharacterMovement : MonoBehaviour
     //Referenced these tutorials: https://www.youtube.com/watch?v=_QajrabyTJc&t=171s, https://gamedevbeginner.com/raycasts-in-unity-made-easy/#raycast
     [Header("Mouse Settings")]
     public Transform pBody;
+    public GameObject cam; 
+    //public Transform camTransform; 
     public Animator bounceAnim;
     public float bounceSpeed; 
     public float mouseSens = 100f;
@@ -37,6 +39,10 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 camTransform = cam.transform.position;
+        camTransform.y = transform.position.y; 
+        cam.transform.position = camTransform;
+        
         //using old input system 
 
         //Mouse Look 

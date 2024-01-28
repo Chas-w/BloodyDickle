@@ -8,7 +8,23 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public Health playerHealth;
     public bool spawnNewWave;
-    public int wave; 
+    public int wave;
+    public static GameManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
+
+    }
     void Start()
     {
         
@@ -23,10 +39,10 @@ public class GameManager : MonoBehaviour
             spawnNewWave = true;
             wave++; 
         } else if (enemyNum.Length >= 0) { spawnNewWave = false;  }
-        //if (SceneManager.GetActiveScene().name == "Mia Scene")
-        //{
-        //   if (playerHealth.dead == true) { SceneManager.LoadScene("Lose"); }
-        // }
-        //if (SceneManager.GetActiveScene().name == "Lose" || SceneManager.GetActiveScene().name == "Menu") {/*move to game scene*/ }
+        if (SceneManager.GetActiveScene().name == "Mia Scene")
+        {
+           if (playerHealth.dead == true) { SceneManager.LoadScene("Lose"); }
+         }
+        if (SceneManager.GetActiveScene().name == "Lose" || SceneManager.GetActiveScene().name == "Menu") { if (Input.GetMouseButtonDown(0)) { SceneManager.LoadScene("Mia Scene"); } }
     }
 }

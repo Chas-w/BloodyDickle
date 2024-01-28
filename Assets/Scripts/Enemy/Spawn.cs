@@ -6,14 +6,16 @@ using UnityEngine;
 public class Spawn : MonoBehaviour
 {
     public GameObject spawnPrefab;
-    public GameManager gameManager;
+    public GameManager gameManager; 
+    public GameObject game;
     public int enemyCount; 
 
     //bool TempWave = true;
     // Start is called before the first frame update
     void Start()
     {
-        
+        game = GameObject.Find("GameManager");
+        gameManager = game.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
