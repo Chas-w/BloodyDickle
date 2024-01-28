@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public GameObject player;
     public Health playerHealth;
+    public bool spawnNewWave;
+    public int waveCount; 
     void Start()
     {
         
@@ -15,10 +17,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "Mia Scene")
+        var enemyNum = GameObject.FindGameObjectsWithTag("Enemy");
+        if (enemyNum.Length == 0)
         {
-            if (playerHealth.dead == true) { SceneManager.LoadScene("Lose"); }
-        }
-        if (SceneManager.GetActiveScene().name == "Lose" || SceneManager.GetActiveScene().name == "Menu") {/*move to game scene*/ }
+            spawnNewWave = true; 
+        } else if (enemyNum.Length >= 0) { spawnNewWave = false;  }
+        //if (SceneManager.GetActiveScene().name == "Mia Scene")
+        //{
+        //   if (playerHealth.dead == true) { SceneManager.LoadScene("Lose"); }
+        // }
+        //if (SceneManager.GetActiveScene().name == "Lose" || SceneManager.GetActiveScene().name == "Menu") {/*move to game scene*/ }
     }
 }
