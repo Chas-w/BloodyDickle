@@ -48,7 +48,7 @@ public class randomTextGen : MonoBehaviour
         Messages.Add("#GlobalGameJam2024");
         Messages.Add("''RANDOM TEXT''");
 
-        Invoke("ChangeText", 1.0f);
+        Invoke("ChangeText", 0.0f);
     }
 
     public void ChangeText()
