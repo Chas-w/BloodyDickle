@@ -60,7 +60,7 @@ public class EnemyInteract : MonoBehaviour
 
     void Attacking()
     {
-        playerHealth.health -= damageAmount;
+        if (playerHealth.health >= 0) { playerHealth.health -= damageAmount; }
         Debug.Log(playerHealth.health);
     }
 }

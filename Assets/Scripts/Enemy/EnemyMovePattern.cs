@@ -13,7 +13,7 @@ public class EnemyMovePattern : MonoBehaviour
     public float moveSpeed;
     public bool leftAvail, rightAvail, forwardAvail, backwardAvail;
     public bool moveLeft, moveRight, moveForward, moveBackward;
-    public bool playerSpotted;
+    public bool runAway;
 
     public int directionTimerMax;
     public int directionTimerMin;
@@ -99,15 +99,7 @@ public class EnemyMovePattern : MonoBehaviour
     void applyMovement()
     {
         Vector3 movePos = transform.position;
-
-        if (Vector3.Distance(movePos, playerPos.position) < playerSearchDist)
-        {
-            // Swap the position of the cylinder.
-            prioritizeForward = true;
-            movePos = Vector3.MoveTowards(transform.position, playerPos.position, moveSpeed * Time.deltaTime);
-            moving = true;
-        }
-        else if (!prioritizeForward)
+        if (runAway)
         {
             if (moveLeft && leftAvail)
             {
@@ -129,8 +121,43 @@ public class EnemyMovePattern : MonoBehaviour
                 movePos.x -= moveSpeed * Time.deltaTime;
                 moving = true;
             }
-
         }
+        if (!runAway)
+        {
+            if (Vector3.Distance(movePos, playerPos.position) < playerSearchDist && Vector3.Distance(movePos, playerPos.position) > playerProxBuffer)
+            {
+                // Swap the position of the cylinder.
+                prioritizeForward = true;
+                movePos = Vector3.MoveTowards(transform.position, playerPos.position, moveSpeed * Time.deltaTime);
+                moving = true;
+            }
+            else if (Vector3.Distance(movePos, playerPos.position) > playerSearchDist) { prioritizeForward = false; }
+
+            if (!prioritizeForward)
+            {
+                if (moveLeft && leftAvail)
+                {
+                    movePos.x -= moveSpeed * Time.deltaTime;
+                    moving = true;
+                }
+                if (moveRight && rightAvail)
+                {
+                    movePos.x += moveSpeed * Time.deltaTime;
+                    moving = true;
+                }
+                if (moveForward && forwardAvail)
+                {
+                    movePos.z += moveSpeed * Time.deltaTime;
+                    moving = true;
+                }
+                if (moveBackward && backwardAvail)
+                {
+                    movePos.x -= moveSpeed * Time.deltaTime;
+                    moving = true;
+                }
+            }
+        }
+        
         else { moving = false; }
 
         transform.position = movePos;
