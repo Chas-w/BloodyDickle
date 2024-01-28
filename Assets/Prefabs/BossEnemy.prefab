@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65c8df5e7d721b4b89906624c9969c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMax: 1000
+  healthMax: 500
   health: 0
   dead: 0
   enemy: 1
@@ -326,7 +326,6 @@ MonoBehaviour:
   player: {fileID: 0}
   playerPos: {fileID: 0}
   moveSpeed: 3
-  gravity: -6
   leftAvail: 0
   rightAvail: 0
   forwardAvail: 0
@@ -335,14 +334,11 @@ MonoBehaviour:
   moveRight: 0
   moveForward: 0
   moveBackward: 0
-  runAway: 0
+  playerSpotted: 0
   directionTimerMax: 700
   directionTimerMin: 500
   directionTimer: 0
-  prioritizeForward: 0
   castDist: 5
-  playerSearchDist: 20
-  playerProxBuffer: 2
 --- !u!54 &8941913274410463505
 Rigidbody:
   m_ObjectHideFlags: 0
