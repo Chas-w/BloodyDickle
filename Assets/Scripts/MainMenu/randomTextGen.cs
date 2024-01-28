@@ -44,8 +44,9 @@ public class randomTextGen : MonoBehaviour
         Messages.Add("Tickle tac toe");
         Messages.Add("Dear Global Game Jam 2024 Judges, We wuv u :3");
         Messages.Add("Go Violets!");
-        Messages.Add("Getting corporate.");
+        Messages.Add("Getting corporate!");
         Messages.Add("#GlobalGameJam2024");
+        Messages.Add("''RANDOM TEXT''");
 
         Invoke("ChangeText", 1.0f);
     }
