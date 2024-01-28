@@ -26,11 +26,10 @@ public class Interact : MonoBehaviour
     {
         if (enemy != null) { enemyHealth = enemy.gameObject.GetComponent<Health>(); }
         damaging = false;
-
+        handsAnim.speed = 0; 
         if (Input.GetMouseButton(0))
         {
-            handsAnim.SetBool("tickling", true);
-            if (canAttack)
+            handsAnim.speed = 1;
             {
                 damaging = true;
                 Attacking();
