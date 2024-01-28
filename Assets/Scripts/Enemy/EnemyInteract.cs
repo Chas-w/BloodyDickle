@@ -70,6 +70,7 @@ public class EnemyInteract : MonoBehaviour
     {
         if (playerHealth.health >= 0) { playerHealth.health -= damageAmount; }
         enemyMovePattern.canMove = false;
+        //play attacking audio
         Debug.Log(playerHealth.health);
     }
 }

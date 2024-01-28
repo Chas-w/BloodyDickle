@@ -12,7 +12,9 @@ public class Interact : MonoBehaviour
     public float damageAmount;
     public bool damaging; 
 
-    public bool canAttack; 
+    public bool canAttack;
+
+    [SerializeField] AudioSource tickeSFX;
 
 
     // Start is called before the first frame update
@@ -34,7 +36,7 @@ public class Interact : MonoBehaviour
                 damaging = true;
                 Attacking();
             }
-        } 
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -54,6 +56,8 @@ public class Interact : MonoBehaviour
 
     public void Attacking()
     {
+        //play tickle audio
+        tickeSFX.Play();
         if (enemyHealth.health >= 0) { enemyHealth.health -= damageAmount; }
         Debug.Log(enemyHealth.health);
     }
