@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 using static UnityEngine.GraphicsBuffer;
 
 public class EnemyMovePattern : MonoBehaviour
@@ -61,13 +62,19 @@ public class EnemyMovePattern : MonoBehaviour
     void assignDirection()
     {
        // if (!prioritizeForward) 
-       // { 
+       // {  moveLeft = false;
+            moveRight = false;
+            moveLeft = false;
+            moveBackward = false;
+            moveForward = false;
+
             direction = Random.Range(1, 5);
             //assigning directions
-            if (direction == 1) { moveLeft = true; } else { moveLeft = false; }
-            if (direction == 2) { moveRight = true; } else { moveRight = false; }
-            if (direction == 3) { moveForward = true; } else { moveForward = false; }
-            if (direction == 4) { moveBackward = true; } else { moveBackward = false; }
+            if (direction == 1 && leftAvail) { moveLeft = true; } 
+            if (direction == 2 && rightAvail) { moveRight = true; }
+            if (direction == 3 && forwardAvail) { moveForward = true; } 
+            if (direction == 4 && backwardAvail) { moveBackward = true; } 
+            else { direction = Random.Range(1, 5); }
         //}
     }
 
@@ -79,19 +86,20 @@ public class EnemyMovePattern : MonoBehaviour
         
         if (Physics.Raycast(transform.position /*start position for ray*/ , transform.right /*cast direction */ , out hit, castDist /* ray cast distance */))
         {
-            rightAvail = false;
+            if (hit.transform.tag == "Wall") { rightAvail = false; }
+            
         }
         if (Physics.Raycast(transform.position /*start position for ray*/ , -transform.right /*cast direction */ , out hit, castDist /* ray cast distance */))
         {
-            leftAvail = false;
+            if (hit.transform.tag == "Wall") { leftAvail = false; }
         }
         if (Physics.Raycast(transform.position /*start position for ray*/ , transform.forward /*cast direction */ , out hit, castDist /* ray cast distance */))
         {
-            forwardAvail = false;
+            if (hit.transform.tag == "Wall") { forwardAvail = false; }
         }
         if (Physics.Raycast(transform.position /*start position for ray*/ , -transform.forward /*cast direction */ , out hit, castDist /* ray cast distance */))
         {
-            backwardAvail = false;
+            if (hit.transform.tag == "Wall") { backwardAvail = false; }
         }
 
     }
@@ -138,22 +146,22 @@ public class EnemyMovePattern : MonoBehaviour
 
             //if (!prioritizeForward)
             //{
-                if (moveLeft && leftAvail)
+                if (moveLeft)
                 {
                     movePos.x -= moveSpeed * Time.deltaTime;
                     moving = true;
                 }
-                if (moveRight && rightAvail)
+                if (moveRight)
                 {
                     movePos.x += moveSpeed * Time.deltaTime;
                     moving = true;
                 }
-                if (moveForward && forwardAvail)
+                if (moveForward)
                 {
                     movePos.z += moveSpeed * Time.deltaTime;
                     moving = true;
                 }
-                if (moveBackward && backwardAvail)
+                if (moveBackward)
                 {
                     movePos.x -= moveSpeed * Time.deltaTime;
                     moving = true;
@@ -166,6 +174,15 @@ public class EnemyMovePattern : MonoBehaviour
         else { moving = false; }
 
         transform.position = movePos;
+
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Wall")
+        {
+            Vector3 movePos = transform.position;
+            transform.position = movePos;
+        }
     }
 
 }
