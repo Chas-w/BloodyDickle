@@ -7,8 +7,7 @@ public class Spawn : MonoBehaviour
 {
     public GameObject spawnPrefab;
     public GameManager gameManager;
-
-    public int spawnNumber;
+    public int enemyCount; 
 
     //bool TempWave = true;
     // Start is called before the first frame update
@@ -20,13 +19,15 @@ public class Spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameManager.spawnNewWave == true) 
+        
+        if (gameManager.spawnNewWave == true)
         {
-            for (int i = 0; i < spawnNumber; i++)
+            for (int i = 0; i < enemyCount; i++)
             {
                 Instantiate(spawnPrefab, transform.position, transform.rotation);
             }
         }
         
+
     }
 }

@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public Health playerHealth;
     public bool spawnNewWave;
-    public int waveCount; 
+    
     void Start()
     {
         
