@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class changeScene : MonoBehaviour
 {
-    public void LoadMenu()
+    private void Update()
     {
-        SceneManager.LoadScene("Main Menu");
+        if (SceneManager.GetActiveScene().name == "ControlScheme" && Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Main Menu");
+        }
     }
 
     public void StartGame()
