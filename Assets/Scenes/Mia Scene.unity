@@ -4762,6 +4762,10 @@ PrefabInstance:
       propertyPath: healthMax
       value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 5407963007816711511, guid: dc4e39b1f20a47e409142bdbb1e4d8ee, type: 3}
+      propertyPath: m_Intensity
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6545278273111848411, guid: dc4e39b1f20a47e409142bdbb1e4d8ee, type: 3}
       propertyPath: handsAnim
       value: 
