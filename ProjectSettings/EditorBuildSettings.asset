@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/ControlScheme.unity
     guid: 0c3c695c27374e547a5f84f0105db74a
   - enabled: 1
-    path: Assets/Scenes/Mia Scene.unity
+    path: Assets/Scenes/Game Scene.unity
     guid: cd8acf051aa5c6643a01640a216ecda0
   - enabled: 1
     path: Assets/Scenes/End.unity

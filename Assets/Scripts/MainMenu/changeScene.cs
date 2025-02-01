@@ -15,7 +15,7 @@ public class changeScene : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Mia Scene");
+        SceneManager.LoadScene("Game Scene");
     }
 
     public void Controls()
