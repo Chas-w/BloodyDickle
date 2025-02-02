@@ -34,14 +34,17 @@ public class eAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TriggerAttack();
-
+        if (attackCooldown < attackCooldownMax)
+        {
+            TriggerAttack();
+        }
     }
 
     private void DamageLogic()
     {
         playerHealth = theHitObject.GetComponent<pHealth>();
         playerHealth.health -= attackDamage * Time.deltaTime;
+        Debug.Log(playerHealth.health);
     }
 
     private void TriggerAttack()
@@ -52,18 +55,16 @@ public class eAttack : MonoBehaviour
         if (Physics.Raycast(transform.position, fwd, out hit, attackRange, attackable))
         {
             theHitObject = hit.collider.gameObject;
-            if (Input.GetMouseButton(0))
-            {
-                attacking = true;
-            }
-            if (!Input.GetMouseButton(0))
-            {
-                attacking = false;
-            }
+            attacking = true;
         }
         else
         {
             attacking = false;
         }
+    }
+
+    private void CooldownSetter()
+    {
+
     }
 }
