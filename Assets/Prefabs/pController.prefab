@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1043000710652787377}
   - component: {fileID: 7593003894113847993}
-  m_Layer: 0
+  - component: {fileID: 2635434994574040786}
+  m_Layer: 7
   m_Name: CameraHolder
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -49,6 +50,25 @@ MonoBehaviour:
   sensY: 150
   pMovement: {fileID: 6134973415611873495}
   orientation: {fileID: 3485682060381024445}
+--- !u!114 &2635434994574040786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5755993146403654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c720d73e6082d41869a44a0e05fb0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: 2
+  attackCooldownMax: 0
+  attackRange: 10
+  attackable:
+    serializedVersion: 2
+    m_Bits: 64
+  enemyAttacked: {fileID: 0}
 --- !u!1 &2654049590885061964
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,7 +82,8 @@ GameObject:
   - component: {fileID: 6134973415611873495}
   - component: {fileID: 1886998647432159447}
   - component: {fileID: 8934132254895256893}
-  m_Layer: 0
+  - component: {fileID: 7882508057429483903}
+  m_Layer: 7
   m_Name: pController
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -131,7 +152,7 @@ MonoBehaviour:
   controller: {fileID: 8140561233531022825}
   gravity: -15
   groundDistance: 0.4
-  groundCheck: {fileID: 0}
+  groundCheck: {fileID: 1433816287348594952}
   groundMask:
     serializedVersion: 2
     m_Bits: 8
@@ -261,6 +282,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7882508057429483903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2654049590885061964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c67c8f94d148dad47b8d832444a19b3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 100
+  died: 0
 --- !u!1 &3112120894023842643
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +314,8 @@ GameObject:
   - component: {fileID: 5474245342936164972}
   - component: {fileID: 3473761973934052885}
   - component: {fileID: 5310454254428107754}
-  m_Layer: 0
+  - component: {fileID: 6289813776842099969}
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
@@ -494,6 +531,29 @@ MonoBehaviour:
   _PostProcessShaderAccurate: {fileID: 4800000, guid: 2ebed186567d3c244a87538744a62920, type: 3}
   _PixelationShader: {fileID: 4800000, guid: f2da0e2a14a532548b5db043244b3df1, type: 3}
   _InterlacingShader: {fileID: 4800000, guid: 03ebd34214b41ef459d7ee6753b062be, type: 3}
+--- !u!114 &6289813776842099969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3112120894023842643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 433faa8b758afed4f9295b193c697276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _PixelationFactor: 1
+  _ColorEmulationMode: 3
+  _FullscreenColorDepth: {x: 256, y: 256, z: 256}
+  _FullscreenDitherDepth: {x: 32, y: 32, z: 32}
+  _DitheringMatrixSize: 2
+  _DitheringScale: 1
+  _InterlacingSize: 1
+  _PostProcessShader: {fileID: 4800000, guid: 56d52fd5b7c6911468179e5a7359ce0e, type: 3}
+  _PostProcessShaderAccurate: {fileID: 4800000, guid: 2ebed186567d3c244a87538744a62920, type: 3}
+  _PixelationShader: {fileID: 4800000, guid: f2da0e2a14a532548b5db043244b3df1, type: 3}
+  _InterlacingShader: {fileID: 4800000, guid: 03ebd34214b41ef459d7ee6753b062be, type: 3}
 --- !u!1 &4792026924185581999
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,7 +563,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3485682060381024445}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pOrientation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,7 +594,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1433816287348594952}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
