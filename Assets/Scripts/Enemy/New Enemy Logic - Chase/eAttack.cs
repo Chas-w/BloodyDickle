@@ -6,14 +6,14 @@ public class eAttack : MonoBehaviour
 {
     [Header("DamangeStats")]
     public float attackDamage;
-    float attackCooldown;
+    public float attackCooldown;
     [SerializeField] float attackCooldownMax;
     [SerializeField] float attackRange;
 
     [Header("Other")]
     [SerializeField] LayerMask attackable;
     public pHealth playerHealth;
-    bool attacking;
+    public bool attacking;
 
     GameObject theHitObject;
 
@@ -28,22 +28,32 @@ public class eAttack : MonoBehaviour
         if (attacking)
         {
             DamageLogic();
+            Debug.Log("attack");
         }
+
+        if (attackCooldown <= attackCooldownMax)
+        {
+            attackCooldown += Time.deltaTime;
+            attacking = false; 
+        }
+        if (attackCooldown >= attackCooldownMax)
+        {
+            attackCooldown = attackCooldownMax;
+        }
+        TriggerAttack();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (attackCooldown < attackCooldownMax)
-        {
-            TriggerAttack();
-        }
+
     }
 
     private void DamageLogic()
     {
         playerHealth = theHitObject.GetComponent<pHealth>();
-        playerHealth.health -= attackDamage * Time.deltaTime;
+        playerHealth.health -= attackDamage;
     }
 
     private void TriggerAttack()
@@ -54,16 +64,16 @@ public class eAttack : MonoBehaviour
         if (Physics.Raycast(transform.position, fwd, out hit, attackRange, attackable))
         {
             theHitObject = hit.collider.gameObject;
-            attacking = true;
+            if (attackCooldown == attackCooldownMax)
+            {
+                attacking = true;
+                attackCooldown = 0;
+            } 
         }
-        else
+        else 
         {
             attacking = false;
         }
     }
 
-    private void CooldownSetter()
-    {
-
-    }
 }
