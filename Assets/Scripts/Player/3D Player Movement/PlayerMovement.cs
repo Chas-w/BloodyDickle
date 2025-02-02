@@ -29,7 +29,8 @@ public class PlayerMovement : MonoBehaviour
 
     bool isGrounded;
     float stepTimer;
-    int stepChoice; 
+    int stepChoice;
+    bool moving; 
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +49,6 @@ public class PlayerMovement : MonoBehaviour
         {
             mX = Input.GetAxis("Horizontal");
             mZ = Input.GetAxis("Vertical");
-
         }
         else
         {
@@ -65,20 +65,22 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
         playFootsteps();
-        
     }
 
     private void playFootsteps()
     {
-        if (isGrounded && (mX != 0 || mZ != 0))
-        {
-            stepTimer -= Time.deltaTime; 
-            if(stepTimer <= 0)
+        
+            if ((mX != 0 || mZ != 0))
             {
-                stepSource.PlayOneShot(footsteps[(Random.Range(0, footsteps.Length))]);
-                stepTimer = stepTimerMax; 
+                stepTimer -= Time.deltaTime;
+                if (stepTimer <= 0)
+                {
+                    stepSource.PlayOneShot(footsteps[(Random.Range(0, footsteps.Length))]);
+                    stepTimer = stepTimerMax;
+                }
+
             }
-        }
+
     }
 
 }
