@@ -39,12 +39,7 @@ public class RandomMovement : MonoBehaviour //don't forget to change the script 
         {
             if (agent.remainingDistance <= agent.stoppingDistance) //done with path
             {
-                Vector3 point;
-                if (RandomPoint(distanceCheck.chaseObject.position, chaseRange, out point)) //pass in our centre point and radius of area
-                {
-                    Debug.DrawRay(point, Vector3.up, Color.red, 1.0f); //so you can see with gizmos
-                    agent.SetDestination(point);
-                }
+                agent.destination = distanceCheck.chaseObject.position;
             }
 
         }
