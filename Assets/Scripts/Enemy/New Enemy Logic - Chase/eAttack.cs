@@ -13,7 +13,7 @@ public class eAttack : MonoBehaviour
     [Header("Other")]
     [SerializeField] LayerMask attackable;
     public pHealth playerHealth;
-    public bool attacking;
+    bool attacking;
 
     GameObject theHitObject;
 

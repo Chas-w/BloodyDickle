@@ -586,7 +586,7 @@ GameObject:
   m_Layer: 5
   m_Name: CanvasUI
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: e6bfc75698b706c45a0e14c45d547b51, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1

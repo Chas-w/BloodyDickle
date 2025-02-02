@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class pAttack : MonoBehaviour
 {
     [Header("DamangeStats")]
     public float attackDamage;

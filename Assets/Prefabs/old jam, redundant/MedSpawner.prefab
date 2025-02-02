@@ -14,7 +14,7 @@ GameObject:
   m_Layer: 0
   m_Name: MedSpawner
   m_TagString: Untagged
-  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 2800000, guid: de518d7654ee1d14585cee4bbae13b7b, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -70,4 +70,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPrefab: {fileID: 8157903267196152148, guid: aaae518518901ff41a3b4f65d0a3a3f0, type: 3}
   gameManager: {fileID: 0}
-  spawnNumber: 1
+  game: {fileID: 0}
+  enemyCount: 0

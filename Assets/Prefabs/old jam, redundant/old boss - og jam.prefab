@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 3685197297321896571}
   - component: {fileID: 4695157215244839546}
   m_Layer: 6
-  m_Name: BossEnemy
+  m_Name: old boss - og jam
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
