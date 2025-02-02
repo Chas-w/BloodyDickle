@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class AttackGeneral : MonoBehaviour
+public class PlayerAttack : MonoBehaviour
 {
     [Header("DamangeStats")]
     public Health characterAttacked;
@@ -26,12 +26,13 @@ public class AttackGeneral : MonoBehaviour
     void Update()
     {
         RaycastHit hit;
-
+        GameObject theHitObject;
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
-        if ((Physics.Raycast(transform.position, fwd, attackRange, attackable)) && Input.GetMouseButtonDown(0))
+        if ((Physics.Raycast(transform.position, fwd, out hit, attackRange, attackable)) && Input.GetMouseButtonDown(0))
         {
-            print("enemy");
+            theHitObject = hit.collider.gameObject;
+            print(theHitObject);
         }
             
     }
