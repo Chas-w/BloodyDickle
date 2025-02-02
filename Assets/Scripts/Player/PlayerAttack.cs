@@ -6,14 +6,18 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [Header("DamangeStats")]
-    public Health characterAttacked;
     public float attackDamage;
     float attackCooldown;
     [SerializeField] float attackCooldownMax;
     [SerializeField] float attackRange; 
 
     [Header("Other")]
-    [SerializeField] LayerMask attackable; 
+    [SerializeField] LayerMask attackable;
+    public eHealth enemyAttacked;
+    bool attacking;
+
+    GameObject theHitObject; 
+
 
 
     // Start is called before the first frame update
@@ -22,18 +26,53 @@ public class PlayerAttack : MonoBehaviour
         
     }
 
+    private void FixedUpdate()
+    {
+        if (attacking)
+        {
+            DamageLogic(); 
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        RaycastHit hit;
-        GameObject theHitObject;
-        Vector3 fwd = transform.TransformDirection(Vector3.forward);
-
-        if ((Physics.Raycast(transform.position, fwd, out hit, attackRange, attackable)) && Input.GetMouseButtonDown(0))
-        {
-            theHitObject = hit.collider.gameObject;
-            print(theHitObject);
-        }
+        TriggerAttack();
             
     }
+
+    private void DamageLogic()
+    {
+
+        enemyAttacked = theHitObject.GetComponent<eHealth>();
+        Debug.Log(Mathf.Abs(enemyAttacked.health));
+
+        enemyAttacked.health -= attackDamage * Time.deltaTime; 
+        
+
+    }
+
+    private void TriggerAttack()
+    {
+        RaycastHit hit;
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+
+        if (Physics.Raycast(transform.position, fwd, out hit, attackRange, attackable))
+        {
+            theHitObject = hit.collider.gameObject;
+            if (Input.GetMouseButton(0))
+            {
+                attacking = true;
+            }
+            if (!Input.GetMouseButton(0))
+            {
+                attacking = false;
+            }
+        }
+        else
+        {
+            attacking = false;
+        }
+    }
 }
+
