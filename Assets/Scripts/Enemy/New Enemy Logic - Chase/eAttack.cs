@@ -44,7 +44,6 @@ public class eAttack : MonoBehaviour
     {
         playerHealth = theHitObject.GetComponent<pHealth>();
         playerHealth.health -= attackDamage * Time.deltaTime;
-        Debug.Log(playerHealth.health);
     }
 
     private void TriggerAttack()
