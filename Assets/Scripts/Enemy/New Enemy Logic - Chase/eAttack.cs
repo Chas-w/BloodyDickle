@@ -1,34 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class eAttack : MonoBehaviour
 {
     [Header("DamangeStats")]
     public float attackDamage;
     float attackCooldown;
     [SerializeField] float attackCooldownMax;
-    [SerializeField] float attackRange; 
+    [SerializeField] float attackRange;
 
     [Header("Other")]
     [SerializeField] LayerMask attackable;
-    public eHealth enemyAttacked;
+    public pHealth playerHealth;
     bool attacking;
 
-    GameObject theHitObject; 
+    GameObject theHitObject;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     private void FixedUpdate()
     {
         if (attacking)
         {
-            DamageLogic(); 
+            DamageLogic();
         }
     }
 
@@ -36,13 +35,13 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
         TriggerAttack();
-            
+
     }
 
     private void DamageLogic()
     {
-        enemyAttacked = theHitObject.GetComponent<eHealth>();
-        enemyAttacked.health -= attackDamage * Time.deltaTime; 
+        playerHealth = theHitObject.GetComponent<pHealth>();
+        playerHealth.health -= attackDamage * Time.deltaTime;
     }
 
     private void TriggerAttack()
@@ -68,4 +67,3 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 }
-
