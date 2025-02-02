@@ -15,7 +15,7 @@ public class changeScene : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Game Scene");
+        SceneManager.LoadScene("Rebrand");
     }
 
     public void Controls()

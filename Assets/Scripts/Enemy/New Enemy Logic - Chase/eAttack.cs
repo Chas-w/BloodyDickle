@@ -12,7 +12,11 @@ public class eAttack : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] LayerMask attackable;
+    [SerializeField] float chasingRange; 
     public pHealth playerHealth;
+    public bool chase;
+    public Transform chaseObject;
+
     bool attacking;
 
     GameObject theHitObject;
@@ -73,6 +77,15 @@ public class eAttack : MonoBehaviour
         else 
         {
             attacking = false;
+        }
+
+        if (Physics.Raycast(transform.position, fwd, out hit, chasingRange, attackable) )
+        {
+            chase = true;
+            chaseObject = hit.transform; 
+        } else
+        {
+            chase = false; 
         }
     }
 
