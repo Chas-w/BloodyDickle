@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class pManagement : MonoBehaviour
 {
     [Header("Player Data")]
     public float mSpeed;
-    public bool haltMovement;
     [SerializeField] Transform orientation;
     [SerializeField] CharacterController controller;
 
@@ -27,7 +26,9 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Animator")]
     public Animator headAnimator;
-    public bool attacked; 
+    public bool attacked;
+    public bool died; 
+    
 
     Vector3 velocity;
 
@@ -52,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2f;
         }
 
-        if (!haltMovement)
+        if (!died)
         {
             mX = Input.GetAxis("Horizontal");
             mZ = Input.GetAxis("Vertical");
@@ -63,8 +64,6 @@ public class PlayerMovement : MonoBehaviour
             mZ = 0;
         }
 
-        Debug.Log("mz" + mZ);
-        Debug.Log("mx" + mX);
 
 
         velocity.y += gravity * Time.deltaTime;
@@ -94,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovementAnimation()
     {
-        if (!attacked)
+        if (!attacked && !died)
         {
             if (mX > 0 && mZ >= 0)
             {
@@ -105,7 +104,16 @@ public class PlayerMovement : MonoBehaviour
             } else if (mZ >= 0 && mX == 0)
             {
                 headAnimator.SetInteger("Direction", 1);
+               // headAnimator.SetBool("Idle", true);
             }
+        } 
+        if (attacked && !died)
+        {
+            headAnimator.SetInteger("Direction", 4);
+        } 
+        if (died)
+        {
+            headAnimator.SetInteger("Direction", 5);
         }
     }
 

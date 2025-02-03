@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class pHealth : MonoBehaviour
 {
-    public float health; 
+    public float health;
     public float maxHealth;
-    public bool died; 
-    // Start is called before the first frame update
+    public pManagement pM; 
+  // Start is called before the first frame update
     void Start()
     {
         health = maxHealth; 
@@ -16,6 +16,9 @@ public class pHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (health <= 0)
+        {
+            pM.died = true;
+        }
     }
 }

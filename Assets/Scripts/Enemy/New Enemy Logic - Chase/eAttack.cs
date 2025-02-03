@@ -7,6 +7,7 @@ public class eAttack : MonoBehaviour
     [Header("DamangeStats")]
     public float attackDamage;
     public float attackCooldown;
+    public pManagement pM; 
     [SerializeField] float attackCooldownMax;
     [SerializeField] float attackRange;
 
@@ -24,15 +25,16 @@ public class eAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+    
     }
 
     private void FixedUpdate()
     {
+        pM = GameObject.Find("pController").GetComponent<pManagement>();
         if (attacking)
         {
             DamageLogic();
-            Debug.Log("attack");
+            pM.attacked = true; 
         }
 
         if (attackCooldown <= attackCooldownMax)
@@ -77,6 +79,7 @@ public class eAttack : MonoBehaviour
         else 
         {
             attacking = false;
+            pM.attacked = false;
         }
 
         if (Physics.Raycast(transform.position, fwd, out hit, chasingRange, attackable) )

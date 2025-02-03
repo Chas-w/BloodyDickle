@@ -9,7 +9,7 @@ public class MouseLook : MonoBehaviour
     [SerializeField] float sensY;
 
     [Header("External Data")]
-    public PlayerMovement pMovement;
+    public pManagement pMovement;
     [SerializeField] Transform orientation;
 
     float xRotation; 
@@ -28,7 +28,7 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!pMovement.haltMovement)
+        if (!pMovement.died)
         {
             float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
             float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
