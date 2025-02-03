@@ -363,10 +363,13 @@ MonoBehaviour:
   distanceCheck: {fileID: 609381245844022643}
   healthCheck: {fileID: 872127069371328945}
   centrePoint: {fileID: 1267721514774458795}
+  mTimer: 0
+  mTimerMax: 3
   chaseRange: 50
   eAnim: {fileID: 957012642732803953}
   died: 0
   attacked: 0
+  movingRandomly: 0
 --- !u!136 &8265206294064689992
 CapsuleCollider:
   m_ObjectHideFlags: 0
