@@ -9,7 +9,11 @@ public class pAttack : MonoBehaviour
     public float attackDamage;
     float attackCooldown;
     [SerializeField] float attackCooldownMax;
-    [SerializeField] float attackRange; 
+    [SerializeField] float attackRange;
+
+    [Header("Animation")]
+    public Animator handsAnim;
+
 
     [Header("Other")]
     [SerializeField] LayerMask attackable;
@@ -21,28 +25,36 @@ public class pAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //handAnimator = hands.GetComponent<Animation>();
     }
 
     private void FixedUpdate()
     {
         if (attacking)
         {
-            DamageLogic(); 
+            DamageLogic();
+
         }
+  
     }
 
     // Update is called once per frame
     void Update()
     {
         TriggerAttack();
-            
+        handsAnim.speed = 0;
+        if (Input.GetMouseButton(0))
+        {
+            handsAnim.speed = 1;
+        }
+
+
     }
 
     private void DamageLogic()
     {
         enemyAttacked = theHitObject.GetComponent<eHealth>();
-        enemyAttacked.health -= attackDamage * Time.deltaTime; 
+        enemyAttacked.health -= attackDamage * Time.deltaTime;
     }
 
     private void TriggerAttack()

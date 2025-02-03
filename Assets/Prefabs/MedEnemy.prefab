@@ -141,7 +141,10 @@ MonoBehaviour:
   attackable:
     serializedVersion: 2
     m_Bits: 128
+  chasingRange: 100
   playerHealth: {fileID: 0}
+  chase: 0
+  chaseObject: {fileID: 0}
 --- !u!1 &8157903267196152148
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,6 +159,7 @@ GameObject:
   - component: {fileID: 2683075817464885807}
   - component: {fileID: 8568027027672676079}
   - component: {fileID: 8318776141100949583}
+  - component: {fileID: 7423491187288539918}
   m_Layer: 6
   m_Name: MedEnemy
   m_TagString: Enemy
@@ -327,7 +331,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 15
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -352,5 +356,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 8568027027672676079}
-  range: 50
-  centrePoint: {fileID: 0}
+  range: 25
+  distanceCheck: {fileID: 1333538643685738742}
+  centrePoint: {fileID: 3260107683527788905}
+  chaseRange: 75
+--- !u!136 &7423491187288539918
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8157903267196152148}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.65
+  m_Height: 2.42
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

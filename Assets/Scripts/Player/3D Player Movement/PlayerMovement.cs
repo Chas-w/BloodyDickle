@@ -23,7 +23,11 @@ public class PlayerMovement : MonoBehaviour
     [Header("Audio Data")]
     [SerializeField] AudioSource stepSource;
     [SerializeField] AudioClip[] footsteps;
-    [SerializeField] float stepTimerMax; 
+    [SerializeField] float stepTimerMax;
+
+    [Header("Animator")]
+    public Animator headAnimator;
+    public bool attacked; 
 
     Vector3 velocity;
 
@@ -35,7 +39,10 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
     }
-
+    private void FixedUpdate()
+    {
+        MovementAnimation();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -56,6 +63,8 @@ public class PlayerMovement : MonoBehaviour
             mZ = 0;
         }
 
+        Debug.Log("mz" + mZ);
+        Debug.Log("mx" + mX);
 
 
         velocity.y += gravity * Time.deltaTime;
@@ -81,6 +90,23 @@ public class PlayerMovement : MonoBehaviour
 
             }
 
+    }
+
+    private void MovementAnimation()
+    {
+        if (!attacked)
+        {
+            if (mX > 0 && mZ >= 0)
+            {
+                headAnimator.SetInteger("Direction", 2); 
+            } else if (mX < 0 && mZ >= 0)
+            {
+                headAnimator.SetInteger("Direction", 3); 
+            } else if (mZ >= 0 && mX == 0)
+            {
+                headAnimator.SetInteger("Direction", 1);
+            }
+        }
     }
 
 }
