@@ -18,6 +18,7 @@ public class pAttack : MonoBehaviour
     [Header("Other")]
     [SerializeField] LayerMask attackable;
     public eHealth enemyAttacked;
+    public eManager enemy; 
     bool attacking;
 
     GameObject theHitObject; 
@@ -33,9 +34,8 @@ public class pAttack : MonoBehaviour
         if (attacking)
         {
             DamageLogic();
-
-        }
-  
+            enemy.attacked = true; 
+        } 
     }
 
     // Update is called once per frame
@@ -65,6 +65,7 @@ public class pAttack : MonoBehaviour
         if (Physics.Raycast(transform.position, fwd, out hit, attackRange, attackable))
         {
             theHitObject = hit.collider.gameObject;
+            enemy = theHitObject.GetComponent<eManager>(); 
             if (Input.GetMouseButton(0))
             {
                 attacking = true;
@@ -72,11 +73,14 @@ public class pAttack : MonoBehaviour
             if (!Input.GetMouseButton(0))
             {
                 attacking = false;
+                enemy.attacked = false;
+
             }
         }
         else
         {
             attacking = false;
+            enemy.attacked = false; 
         }
     }
 }

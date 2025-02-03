@@ -17,8 +17,11 @@ public class eAttack : MonoBehaviour
     public pHealth playerHealth;
     public bool chase;
     public Transform chaseObject;
+    public bool attackHold; 
 
     bool attacking;
+    float attackTime; 
+    float attackTimeMax = 2f;
 
     GameObject theHitObject;
 
@@ -30,11 +33,21 @@ public class eAttack : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (attackTime > 0)
+        {
+            attackHold = true;
+            attackTime -= Time.deltaTime; 
+        }
+        else
+        {
+            attackHold=false;
+        }
         pM = GameObject.Find("pController").GetComponent<pManagement>();
         if (attacking)
         {
             DamageLogic();
-            pM.attacked = true; 
+            pM.attacked = true;
+            attackTime = attackTimeMax; 
         }
 
         if (attackCooldown <= attackCooldownMax)

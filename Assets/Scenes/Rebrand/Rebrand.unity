@@ -9196,6 +9196,22 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!114 &186536313 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1333538643685738742, guid: aaae518518901ff41a3b4f65d0a3a3f0, type: 3}
+  m_PrefabInstance: {fileID: 475831086}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4a3d6843bd95034698e77be6ce29e64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &186536315 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7550518833668761221, guid: aaae518518901ff41a3b4f65d0a3a3f0, type: 3}
+  m_PrefabInstance: {fileID: 475831086}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &198819829
 GameObject:
   m_ObjectHideFlags: 0
@@ -10866,6 +10882,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1863365057}
     - target: {fileID: 2635434994574040786, guid: dc4e39b1f20a47e409142bdbb1e4d8ee, type: 3}
+      propertyPath: attackDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2635434994574040786, guid: dc4e39b1f20a47e409142bdbb1e4d8ee, type: 3}
       propertyPath: handAnimator
       value: 
       objectReference: {fileID: 1863365056}
@@ -10957,6 +10977,10 @@ PrefabInstance:
       propertyPath: pM
       value: 
       objectReference: {fileID: 1925125020}
+    - target: {fileID: 7882508057429483903, guid: dc4e39b1f20a47e409142bdbb1e4d8ee, type: 3}
+      propertyPath: maxHealth
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 7882508057429483903, guid: dc4e39b1f20a47e409142bdbb1e4d8ee, type: 3}
       propertyPath: pMovement
       value: 
@@ -12238,6 +12262,14 @@ PrefabInstance:
       propertyPath: playerPos
       value: 
       objectReference: {fileID: 1925125015}
+    - target: {fileID: 2683075817464885807, guid: aaae518518901ff41a3b4f65d0a3a3f0, type: 3}
+      propertyPath: maxHealth
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2683075817464885807, guid: aaae518518901ff41a3b4f65d0a3a3f0, type: 3}
+      propertyPath: enemyManager
+      value: 
+      objectReference: {fileID: 563482080}
     - target: {fileID: 3260107683527788905, guid: aaae518518901ff41a3b4f65d0a3a3f0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 87.62211
@@ -12282,6 +12314,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: MedEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8318776141100949583, guid: aaae518518901ff41a3b4f65d0a3a3f0, type: 3}
+      propertyPath: eAnim
+      value: 
+      objectReference: {fileID: 186536315}
+    - target: {fileID: 8318776141100949583, guid: aaae518518901ff41a3b4f65d0a3a3f0, type: 3}
+      propertyPath: fight
+      value: 
+      objectReference: {fileID: 186536313}
+    - target: {fileID: 8318776141100949583, guid: aaae518518901ff41a3b4f65d0a3a3f0, type: 3}
+      propertyPath: healthCheck
+      value: 
+      objectReference: {fileID: 563482082}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12858,6 +12902,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &563482080 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8318776141100949583, guid: aaae518518901ff41a3b4f65d0a3a3f0, type: 3}
+  m_PrefabInstance: {fileID: 475831086}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d41f94b28b4a2314dac9f919a72d7538, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &563482082 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2683075817464885807, guid: aaae518518901ff41a3b4f65d0a3a3f0, type: 3}
+  m_PrefabInstance: {fileID: 475831086}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3c7f1269bd6aa0459d08aa4ce6b554e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &599385900
 GameObject:
   m_ObjectHideFlags: 0

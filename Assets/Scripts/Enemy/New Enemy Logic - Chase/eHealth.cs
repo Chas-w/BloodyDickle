@@ -6,7 +6,9 @@ public class eHealth : MonoBehaviour
 {
     public float health; 
     public float maxHealth;
-    public bool died; 
+    public eManager enemyManager;
+    float eDiedTimer = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,9 +19,17 @@ public class eHealth : MonoBehaviour
     void Update()
     {
         if (health < 0)
-            died = true;
+        {
+            enemyManager.died = true; 
+        }
 
-        if (died)
-            Debug.Log("died");
+        if (enemyManager.died)
+        {
+            eDiedTimer -= Time.deltaTime; 
+            if (eDiedTimer < 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }

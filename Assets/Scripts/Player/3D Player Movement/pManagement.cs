@@ -42,7 +42,7 @@ public class pManagement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        MovementAnimation();
+        AnimationSetter();
     }
     // Update is called once per frame
     void Update()
@@ -91,7 +91,7 @@ public class pManagement : MonoBehaviour
 
     }
 
-    private void MovementAnimation()
+    private void AnimationSetter()
     {
         if (!attacked && !died)
         {
