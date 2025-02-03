@@ -134,8 +134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a3d6843bd95034698e77be6ce29e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 5
+  attackDamage: 2
   attackCooldown: 0
+  pM: {fileID: 0}
   attackCooldownMax: 1
   attackRange: 10
   attackable:
@@ -145,6 +146,8 @@ MonoBehaviour:
   playerHealth: {fileID: 0}
   chase: 0
   chaseObject: {fileID: 0}
+  attackHold: 0
+  attackTimeMax: 2
 --- !u!1 &8157903267196152148
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,8 +322,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 100
-  died: 0
+  maxHealth: 12
+  enemyManager: {fileID: 8318776141100949583}
 --- !u!195 &8568027027672676079
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -358,8 +361,12 @@ MonoBehaviour:
   agent: {fileID: 8568027027672676079}
   range: 25
   distanceCheck: {fileID: 1333538643685738742}
+  healthCheck: {fileID: 2683075817464885807}
   centrePoint: {fileID: 3260107683527788905}
   chaseRange: 75
+  eAnim: {fileID: 7550518833668761221}
+  died: 0
+  attacked: 0
 --- !u!136 &7423491187288539918
 CapsuleCollider:
   m_ObjectHideFlags: 0

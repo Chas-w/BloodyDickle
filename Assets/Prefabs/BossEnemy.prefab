@@ -138,7 +138,7 @@ MonoBehaviour:
   attackCooldown: 0
   pM: {fileID: 0}
   attackCooldownMax: 1
-  attackRange: 10
+  attackRange: 20
   attackable:
     serializedVersion: 2
     m_Bits: 128
@@ -147,6 +147,7 @@ MonoBehaviour:
   chase: 0
   chaseObject: {fileID: 0}
   attackHold: 0
+  attackTimeMax: 4
 --- !u!1 &7718639742312313511
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,7 +322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 12
+  maxHealth: 24
   enemyManager: {fileID: 1241056428021928265}
 --- !u!195 &7466100881426723043
 NavMeshAgent:

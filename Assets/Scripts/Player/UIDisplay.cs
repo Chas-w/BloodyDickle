@@ -9,6 +9,7 @@ public class UIDisplay : MonoBehaviour
     [SerializeField] TMP_Text wavesDisplay;
 
     public pHealth player; 
+    public RandomSpawner spawner;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +20,6 @@ public class UIDisplay : MonoBehaviour
     void Update()
     {
        healthDisplay.text = player.health.ToString() + " HP";
+       wavesDisplay.text = spawner.waves.ToString(); 
     }
 }
