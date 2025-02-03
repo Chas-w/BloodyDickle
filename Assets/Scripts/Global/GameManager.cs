@@ -57,6 +57,6 @@ public class GameManager : MonoBehaviour
                 }
             }
          }
-        if (SceneManager.GetActiveScene().name == "End" ) { if (Input.GetKey(KeyCode.Escape)) { SceneManager.LoadScene("Main Menu"); } }
+        if (SceneManager.GetActiveScene().name == "End" ) { if (Input.GetKey(KeyCode.Escape)) { SceneManager.LoadScene("Rebrand"); } }
     }
 }
