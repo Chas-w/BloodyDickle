@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 2683075817464885807}
   - component: {fileID: 8568027027672676079}
   - component: {fileID: 8318776141100949583}
-  - component: {fileID: 7423491187288539918}
+  - component: {fileID: 1133815779080936345}
   m_Layer: 6
   m_Name: MedEnemy
   m_TagString: Enemy
@@ -333,7 +333,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 8157903267196152148}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1
   m_Speed: 15
   m_Acceleration: 8
   avoidancePriority: 50
@@ -367,7 +367,7 @@ MonoBehaviour:
   eAnim: {fileID: 7550518833668761221}
   died: 0
   attacked: 0
---- !u!136 &7423491187288539918
+--- !u!136 &1133815779080936345
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -386,7 +386,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.65
-  m_Height: 2.42
+  m_Radius: 0.5
+  m_Height: 2.18
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
