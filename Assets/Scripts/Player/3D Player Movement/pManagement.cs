@@ -27,8 +27,9 @@ public class pManagement : MonoBehaviour
     [Header("Animator")]
     public Animator headAnimator;
     public bool attacked;
-    public bool died; 
-    
+    public bool died;
+
+    public float damageTimer; 
 
     Vector3 velocity;
 
@@ -47,6 +48,14 @@ public class pManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (attacked == true)
+        {
+            damageTimer -= Time.deltaTime;
+            if (damageTimer < 0)
+            {
+                attacked = false; 
+            }
+        }
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         if (isGrounded && velocity.y < 0)
         {

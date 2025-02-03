@@ -21,7 +21,7 @@ public class eAttack : MonoBehaviour
 
     bool attacking;
     float attackTime; 
-    float attackTimeMax = 2f;
+    [SerializeField] float attackTimeMax = 2f;
 
     GameObject theHitObject;
 
@@ -47,6 +47,7 @@ public class eAttack : MonoBehaviour
         {
             DamageLogic();
             pM.attacked = true;
+            pM.damageTimer = 2f; 
             attackTime = attackTimeMax; 
         }
 
@@ -92,7 +93,6 @@ public class eAttack : MonoBehaviour
         else 
         {
             attacking = false;
-            pM.attacked = false;
         }
 
         if (Physics.Raycast(transform.position, fwd, out hit, chasingRange, attackable) )
