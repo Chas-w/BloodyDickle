@@ -21,6 +21,7 @@ public class eManager : MonoBehaviour //don't forget to change the script name i
     public Animator eAnim;
     public bool died;
     public bool attacked;
+    public int parameter; 
 
     [Header("audio")]
     [SerializeField] AudioClip[] tickledClip;
@@ -91,15 +92,17 @@ public class eManager : MonoBehaviour //don't forget to change the script name i
         {
             if (agent.velocity == Vector3.zero)
             {
-                eAnim.SetInteger("Movement", 0);
+                //eAnim.SetInteger("Movement", 0);
+                parameter = 0;
             }
             if (agent.velocity.z != 0)
             {
-       
-                eAnim.SetInteger("Movement", 1);
+
+                //eAnim.SetInteger("Movement", 1);
+                parameter = 1;
             }
         }
-        if (distanceCheck.attackHold && !attacked)
+        if (distanceCheck.attackHold && !died)
         {
             if (tickledAudioCount <= 0)
             {
@@ -109,7 +112,8 @@ public class eManager : MonoBehaviour //don't forget to change the script name i
                 tickledAudioCount = tickledAudioCountMax;
                 */
             }
-            eAnim.SetInteger("Movement", 8);
+            //eAnim.SetInteger("Movement", 8);
+            parameter = 8;
         }
         if (attacked && !died)
         {
@@ -121,11 +125,13 @@ public class eManager : MonoBehaviour //don't forget to change the script name i
             }
             if (healthCheck.health >= healthCheck.maxHealth/2)
             {
-                eAnim.SetInteger("Movement", 5);
+                //eAnim.SetInteger("Movement", 5);
+                parameter = 5; 
             } 
             else
             {
-                eAnim.SetInteger("Movement", 6);
+                //eAnim.SetInteger("Movement", 6);
+                parameter = 6;
             }
         }
         if (died)
@@ -136,8 +142,10 @@ public class eManager : MonoBehaviour //don't forget to change the script name i
                 audioSource.PlayOneShot(deathClip);
                 playedDeathClip = true; 
             }
-            eAnim.SetInteger("Movement", 7);
+            //eAnim.SetInteger("Movement", 7);
+            parameter = 7;
         }
+        eAnim.SetInteger("Movement", parameter);
 
 
     }

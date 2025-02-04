@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject player;
+    public pHealth playerHealth;
     public pManagement playerManagement;
     public bool spawnNewWave;
     public int wave;
@@ -37,11 +38,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        playerHealth = FindObjectOfType<pHealth>();
         var enemyNum = GameObject.FindGameObjectsWithTag("Enemy");
         if (enemyNum.Length == 0)
         {
             spawnNewWave = true;
-            wave++; 
+            wave++;
+            playerHealth.health += 1f;
         } else if (enemyNum.Length >= 0) { spawnNewWave = false;  }
         if (SceneManager.GetActiveScene().name == "Rebrand")
         {
@@ -57,6 +60,10 @@ public class GameManager : MonoBehaviour
                 }
             }
          }
-        if (SceneManager.GetActiveScene().name == "End" ) { if (Input.GetKey(KeyCode.Escape)) { SceneManager.LoadScene("Rebrand"); } }
+        if (SceneManager.GetActiveScene().name == "End" && Input.GetKey(KeyCode.E))
+        {
+            SceneManager.LoadScene("Main Menu");
+        }
+
     }
 }

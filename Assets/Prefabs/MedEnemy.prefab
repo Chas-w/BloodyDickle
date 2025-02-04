@@ -137,6 +137,7 @@ MonoBehaviour:
   attackDamage: 2
   attackCooldown: 0
   pM: {fileID: 0}
+  manager: {fileID: 8318776141100949583}
   attackCooldownMax: 1
   attackRange: 10
   attackable:
@@ -387,6 +388,7 @@ MonoBehaviour:
   eAnim: {fileID: 7550518833668761221}
   died: 0
   attacked: 0
+  parameter: 0
   tickledClip:
   - {fileID: 8300000, guid: 6566ec29587eaa54ebc631706a228403, type: 3}
   - {fileID: 8300000, guid: ec5689aaa88b0504fafc90a1670d4889, type: 3}

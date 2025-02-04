@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,8 @@ public class eAttack : MonoBehaviour
     [Header("DamangeStats")]
     public float attackDamage;
     public float attackCooldown;
-    public pManagement pM; 
+    public pManagement pM;
+    public eManager manager;
     [SerializeField] float attackCooldownMax;
     [SerializeField] float attackRange;
 
@@ -78,7 +80,12 @@ public class eAttack : MonoBehaviour
     {
         playerHealth = theHitObject.GetComponent<pHealth>();
         playerHealth.health -= attackDamage;
-        attackAudioSource.PlayOneShot(attackClip);
+
+
+        if (manager.parameter == 8)
+        {
+            attackAudioSource.PlayOneShot(attackClip);
+        }
     }
 
     private void TriggerAttack()

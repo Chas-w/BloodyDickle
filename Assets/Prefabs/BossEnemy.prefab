@@ -137,6 +137,7 @@ MonoBehaviour:
   attackDamage: 5
   attackCooldown: 0
   pM: {fileID: 0}
+  manager: {fileID: 1241056428021928265}
   attackCooldownMax: 1
   attackRange: 20
   attackable:
@@ -333,7 +334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 24
+  maxHealth: 50
   enemyManager: {fileID: 1241056428021928265}
 --- !u!195 &7466100881426723043
 NavMeshAgent:
@@ -378,6 +379,7 @@ MonoBehaviour:
   eAnim: {fileID: 957012642732803953}
   died: 0
   attacked: 0
+  parameter: 0
   tickledClip:
   - {fileID: 8300000, guid: aea7ad714609214419f97e26721c5ae1, type: 3}
   - {fileID: 8300000, guid: 4b139bd153cfc94459cffd830cd17064, type: 3}
