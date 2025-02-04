@@ -22,6 +22,15 @@ public class eManager : MonoBehaviour //don't forget to change the script name i
     public bool died;
     public bool attacked;
 
+    [Header("audio")]
+    [SerializeField] AudioClip[] tickledClip;
+    [SerializeField] AudioClip[] attckVoiceClip;
+    [SerializeField] AudioClip deathClip;
+    [SerializeField] AudioSource audioSource;
+    float tickledAudioCount;
+    float tickledAudioCountMax = 5f;
+
+    bool playedDeathClip;
 
     void Start()
     {
@@ -74,6 +83,10 @@ public class eManager : MonoBehaviour //don't forget to change the script name i
 
     private void AnimationSetter()
     {
+        if (tickledAudioCount > 0)
+        {
+            tickledAudioCount -= Time.deltaTime;
+        }
         if (!distanceCheck.attackHold && !attacked && !died  )
         {
             if (agent.velocity == Vector3.zero)
@@ -82,15 +95,30 @@ public class eManager : MonoBehaviour //don't forget to change the script name i
             }
             if (agent.velocity.z != 0)
             {
+       
                 eAnim.SetInteger("Movement", 1);
             }
         }
         if (distanceCheck.attackHold && !attacked)
         {
+            if (tickledAudioCount <= 0)
+            {
+                /*
+                audioSource.clip = attckVoiceClip[Random.Range(0, attckVoiceClip.Length)];
+                audioSource.Play();
+                tickledAudioCount = tickledAudioCountMax;
+                */
+            }
             eAnim.SetInteger("Movement", 8);
         }
         if (attacked && !died)
         {
+            if (tickledAudioCount <= 0)
+            {
+                audioSource.clip = tickledClip[Random.Range(0, tickledClip.Length)];
+                audioSource.Play();
+                tickledAudioCount = tickledAudioCountMax;
+            }
             if (healthCheck.health >= healthCheck.maxHealth/2)
             {
                 eAnim.SetInteger("Movement", 5);
@@ -102,9 +130,16 @@ public class eManager : MonoBehaviour //don't forget to change the script name i
         }
         if (died)
         {
+            if (!playedDeathClip)
+            {
+                audioSource.clip = deathClip;
+                audioSource.PlayOneShot(deathClip);
+                playedDeathClip = true; 
+            }
             eAnim.SetInteger("Movement", 7);
         }
-     
+
+
     }
 
 

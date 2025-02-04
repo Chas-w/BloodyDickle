@@ -148,6 +148,8 @@ MonoBehaviour:
   chaseObject: {fileID: 0}
   attackHold: 0
   attackTimeMax: 2
+  attackClip: {fileID: 0}
+  attackAudioSource: {fileID: 0}
 --- !u!1 &8157903267196152148
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,9 +209,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 40
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -217,23 +219,41 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.033333335
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -1.109034
+      outSlope: -1.109034
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.121121906
+    - serializedVersion: 3
+      time: 0.40649152
+      value: 0.9034362
+      inSlope: -1.0562243
+      outSlope: -1.0562243
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      time: 0.5184169
+      value: 0.5059036
+      inSlope: -6.420893
+      outSlope: -6.420893
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.74928284
+      value: 0.03692627
+      inSlope: -1.0344827
+      outSlope: -1.0344827
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -242,7 +262,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -367,6 +387,32 @@ MonoBehaviour:
   eAnim: {fileID: 7550518833668761221}
   died: 0
   attacked: 0
+  tickledClip:
+  - {fileID: 8300000, guid: 6566ec29587eaa54ebc631706a228403, type: 3}
+  - {fileID: 8300000, guid: ec5689aaa88b0504fafc90a1670d4889, type: 3}
+  - {fileID: 8300000, guid: fc55cf18a7ae67f4f9147c332f3b54d6, type: 3}
+  - {fileID: 8300000, guid: ebc110447c84b1f4092b30a9f411311e, type: 3}
+  - {fileID: 8300000, guid: cfda265ae805d044ca2127430e2edea6, type: 3}
+  - {fileID: 8300000, guid: cfda265ae805d044ca2127430e2edea6, type: 3}
+  - {fileID: 8300000, guid: 7153f463d850a1e409b6a523270bf75e, type: 3}
+  - {fileID: 8300000, guid: 59258ee1260862a4d8e3065f81aabe0f, type: 3}
+  - {fileID: 8300000, guid: b97520e692a0b7147a32564ac13cf7aa, type: 3}
+  - {fileID: 8300000, guid: 49b13d3924692864d9a7906788dd411a, type: 3}
+  - {fileID: 8300000, guid: 1223323b2d4503e4380f8afb3e2466ac, type: 3}
+  - {fileID: 8300000, guid: 4134f719fce57b843bc8b7355c734f3c, type: 3}
+  attckVoiceClip:
+  - {fileID: 8300000, guid: 283a14b78632eb4469bec61524bfd187, type: 3}
+  - {fileID: 8300000, guid: 56105ac1d00188f4d95e67b0339f1a11, type: 3}
+  - {fileID: 8300000, guid: 71810c2414725d24eafd4d942e248753, type: 3}
+  - {fileID: 8300000, guid: ade68eb42adeeae43a544df325ac628a, type: 3}
+  - {fileID: 8300000, guid: 029b1e089d8208d4a8627dd04d770199, type: 3}
+  - {fileID: 8300000, guid: 35a44994f2646b54eb66640f7606a60c, type: 3}
+  - {fileID: 8300000, guid: b953427074c856649b10ef909cc48e1d, type: 3}
+  - {fileID: 8300000, guid: 98941f6be6c846a448c91c7472ec6b13, type: 3}
+  - {fileID: 8300000, guid: 7de3b02daafc2904fa35e746aa04bcc2, type: 3}
+  - {fileID: 8300000, guid: 40702ee21d3657047ba5d584376363cf, type: 3}
+  deathClip: {fileID: 8300000, guid: 1e23a727cebc3ba4fb5a11ab13207129, type: 3}
+  audioSource: {fileID: -1605088563199332685}
 --- !u!136 &1133815779080936345
 CapsuleCollider:
   m_ObjectHideFlags: 0

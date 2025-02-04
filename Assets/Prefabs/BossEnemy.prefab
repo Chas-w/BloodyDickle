@@ -148,6 +148,8 @@ MonoBehaviour:
   chaseObject: {fileID: 0}
   attackHold: 0
   attackTimeMax: 4
+  attackClip: {fileID: 8300000, guid: 30f32494e9ce36f45b3094553cbf3711, type: 3}
+  attackAudioSource: {fileID: 6424962753805546973}
 --- !u!1 &7718639742312313511
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,8 +200,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6566ec29587eaa54ebc631706a228403, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.974
+  m_Pitch: 0.76
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -207,9 +209,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
+  MaxDistance: 40
+  Pan2D: 0.1
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -217,23 +219,32 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 1
+      time: 0.008356094
+      value: 0.7660446
       inSlope: 0
       outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.2605306
+      value: 0.4292693
+      inSlope: -1.3234668
+      outSlope: -1.3234668
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
+      time: 0.6434326
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -1.0526316
+      outSlope: -1.0526316
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -242,7 +253,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -272,7 +283,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 1.055
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -338,7 +349,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1
+  m_StoppingDistance: 50
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -363,13 +374,26 @@ MonoBehaviour:
   distanceCheck: {fileID: 609381245844022643}
   healthCheck: {fileID: 872127069371328945}
   centrePoint: {fileID: 1267721514774458795}
-  mTimer: 0
-  mTimerMax: 3
   chaseRange: 50
   eAnim: {fileID: 957012642732803953}
   died: 0
   attacked: 0
-  movingRandomly: 0
+  tickledClip:
+  - {fileID: 8300000, guid: aea7ad714609214419f97e26721c5ae1, type: 3}
+  - {fileID: 8300000, guid: 4b139bd153cfc94459cffd830cd17064, type: 3}
+  - {fileID: 8300000, guid: f86f988208ee357409d88eebd772a9b1, type: 3}
+  - {fileID: 8300000, guid: 8ab7a40376e813749bee6693e91d0329, type: 3}
+  attckVoiceClip:
+  - {fileID: 8300000, guid: c8e3d196553fbaa4db5513c0abdbdaf0, type: 3}
+  - {fileID: 8300000, guid: f503a4e43c5078d409aea8dc1ff3b499, type: 3}
+  - {fileID: 8300000, guid: 00c4059fa84759148aee57b59cc79f07, type: 3}
+  - {fileID: 8300000, guid: e2ff9bf8fdcae5b43ab861457113c692, type: 3}
+  - {fileID: 8300000, guid: 68f0d557e0c11534bbe76f23deb2d307, type: 3}
+  - {fileID: 8300000, guid: 37c0a450de9755340b88345690a0f7f9, type: 3}
+  - {fileID: 8300000, guid: 68f0d557e0c11534bbe76f23deb2d307, type: 3}
+  - {fileID: 8300000, guid: 5f1d7d504a1f6c742ab469ff4961ecee, type: 3}
+  deathClip: {fileID: 8300000, guid: 1e23a727cebc3ba4fb5a11ab13207129, type: 3}
+  audioSource: {fileID: 6424962753805546973}
 --- !u!136 &8265206294064689992
 CapsuleCollider:
   m_ObjectHideFlags: 0

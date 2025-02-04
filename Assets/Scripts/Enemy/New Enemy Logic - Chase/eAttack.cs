@@ -23,6 +23,10 @@ public class eAttack : MonoBehaviour
     float attackTime; 
     [SerializeField] float attackTimeMax = 2f;
 
+    [Header("audio")]
+    [SerializeField] AudioClip attackClip;
+    [SerializeField] AudioSource attackAudioSource; 
+
     GameObject theHitObject;
 
     // Start is called before the first frame update
@@ -74,6 +78,7 @@ public class eAttack : MonoBehaviour
     {
         playerHealth = theHitObject.GetComponent<pHealth>();
         playerHealth.health -= attackDamage;
+        attackAudioSource.PlayOneShot(attackClip);
     }
 
     private void TriggerAttack()
