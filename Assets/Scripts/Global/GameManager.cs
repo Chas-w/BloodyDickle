@@ -59,11 +59,14 @@ public class GameManager : MonoBehaviour
                     SceneManager.LoadScene("End");
                 }
             }
-         }
-        if (SceneManager.GetActiveScene().name == "End" && Input.GetKey(KeyCode.E))
-        {
-            SceneManager.LoadScene("Main Menu");
+
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                Cursor.lockState = CursorLockMode.None; 
+                SceneManager.LoadScene("Main Menu");
+            }
         }
+        
 
     }
 }

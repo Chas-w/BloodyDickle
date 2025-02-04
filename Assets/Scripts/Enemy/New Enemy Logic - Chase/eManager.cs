@@ -25,7 +25,6 @@ public class eManager : MonoBehaviour //don't forget to change the script name i
 
     [Header("audio")]
     [SerializeField] AudioClip[] tickledClip;
-    [SerializeField] AudioClip[] attckVoiceClip;
     [SerializeField] AudioClip deathClip;
     [SerializeField] AudioSource audioSource;
     float tickledAudioCount;

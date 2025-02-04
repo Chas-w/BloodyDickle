@@ -385,15 +385,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4b139bd153cfc94459cffd830cd17064, type: 3}
   - {fileID: 8300000, guid: f86f988208ee357409d88eebd772a9b1, type: 3}
   - {fileID: 8300000, guid: 8ab7a40376e813749bee6693e91d0329, type: 3}
-  attckVoiceClip:
-  - {fileID: 8300000, guid: c8e3d196553fbaa4db5513c0abdbdaf0, type: 3}
-  - {fileID: 8300000, guid: f503a4e43c5078d409aea8dc1ff3b499, type: 3}
-  - {fileID: 8300000, guid: 00c4059fa84759148aee57b59cc79f07, type: 3}
-  - {fileID: 8300000, guid: e2ff9bf8fdcae5b43ab861457113c692, type: 3}
-  - {fileID: 8300000, guid: 68f0d557e0c11534bbe76f23deb2d307, type: 3}
-  - {fileID: 8300000, guid: 37c0a450de9755340b88345690a0f7f9, type: 3}
-  - {fileID: 8300000, guid: 68f0d557e0c11534bbe76f23deb2d307, type: 3}
-  - {fileID: 8300000, guid: 5f1d7d504a1f6c742ab469ff4961ecee, type: 3}
   deathClip: {fileID: 8300000, guid: 1e23a727cebc3ba4fb5a11ab13207129, type: 3}
   audioSource: {fileID: 6424962753805546973}
 --- !u!136 &8265206294064689992
